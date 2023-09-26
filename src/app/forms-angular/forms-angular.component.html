@@ -1,0 +1,10 @@
+<form #ngdemo="ngForm" (submit)=" getFormDetails(ngdemo.value)">
+    <label>Name</label>
+    <input type="text" ngModel name="name" />
+
+    <label>Password</label>
+    <input type="text" ngModel ngModel name="password" />
+    
+    <button type = "submit">Submit</button>
+</form>
+<p>{{formData.name }}</p>
