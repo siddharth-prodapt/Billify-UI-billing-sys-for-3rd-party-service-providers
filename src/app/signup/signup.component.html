@@ -1,3 +1,85 @@
-<p>signup works!</p>
-<a routerLink = ""><button>submit</button></a>
-<a routerLink = "/login"><button>login</button></a>
+<div class="row mt-5" id="signup-form-row">
+    <div class="col-5 mx-auto border rounded shadow">
+        <form>
+            <div class="row mb-3">
+                <div class="col-auto mt-2 mx-auto">
+                    <div class="display-6">Sign-Up</div>
+                </div>
+            </div>
+            <hr>
+            <div class="mb-3">
+                <label for="Name" class="form-label">Full Name<small class="required">*</small></label>
+                <input type="text" class="form-control" id="Name">
+            </div>
+            <div class="mb-3">
+                <label for="PhoneNumber" class="form-label">Phone Number<small class="required">*</small></label>
+                <input type="number" class="form-control" id="PhoneNumber">
+            </div>
+            <div class="mb-3">
+                <label for="AdhaarNumber" class="form-label">Adhaar Number<small class="required">*</small></label>
+                <input type="number" class="form-control" id="AdhaarNumber">
+            </div>
+            <div class="mb-3">
+                <label for="DateOfBirth" class="form-label">Date of Birth<small class="required">*</small></label>
+                <input type="date" class="form-control" id="DateOfBirth">
+            </div>
+            <div class="row">
+                <label for="Address" class="form-label">Address<small class="required">*</small></label>
+            </div>
+            <div class="mb-3 border rounded p-2">
+                <label for="Address" class="form-label">House-No/Street/Line<small class="required">*</small></label>
+                <input type="text" class="form-control" id="Address">
+                <div class="row mt-1">
+                    <div class="col-auto mx-auto">
+                        <label for="City" class="form-label">City<small class="required">*</small></label>
+                        <input type="text" class="form-control" id="City">
+                    </div>
+                    <div class="col-auto mx-auto">
+                        <label for="State" class="form-label">State<small class="required">*</small></label>
+                        <input type="text" class="form-control" id="State">
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-auto mx-auto">
+                        <label for="Country" class="form-label">Country<small class="required">*</small></label>
+                        <input type="text" class="form-control" id="Country">
+                    </div>
+                    <div class="col-auto mx-auto">
+                        <label for="Pincode" class="form-label">Pincode<small class="required">*</small></label>
+                        <input type="number" class="form-control" id="Pincode">
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 border rounded p-2">
+                <label for="UserType" class="form-label">User Type<small class="required">*</small></label>
+                <div class="row">
+                    <div class="form-check col-auto mx-auto">
+                        <input class="form-check-input" type="radio" name="types" id="superuser" value="superuser">
+                        <label class="form-check-label" for="exampleRadios1">Super User</label>
+                    </div>
+                    <div class="form-check col-auto mx-auto">
+                        <input class="form-check-input" type="radio" name="types" id="normaluser" value="normaluser" checked>
+                        <label class="form-check-label" for="exampleRadios1">Normal User</label>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="Password" class="form-label">Password<small class="required">*</small></label>
+                
+                <input type="password" class="form-control" id="Password">
+                <small>Password must contain at least 6-18 characters</small>
+            </div>
+            <div class="mb-3">
+                <label for="ConfirmPassword1" class="form-label">Confirm Password<small class="required">*</small></label>
+                <input type="password" class="form-control" id="ConfirmPassword">
+                
+            </div>
+            <div class="mb-3" style="text-align: center;">
+                <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- <a routerLink = ""><button>submit</button></a>
+<a routerLink = "/login"><button>login</button></a> -->
