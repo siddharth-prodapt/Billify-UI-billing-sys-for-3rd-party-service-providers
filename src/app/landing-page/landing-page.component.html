@@ -1,5 +1,15 @@
 
-<!-- <a routerLink = "/signup"><button>Signup</button></a>
-<a routerLink = "/login"><button>Login</button></a> -->
+<!-- NavBar-Section -->
+<div>
+    <div *ngIf="loggedIn;then navAuthContent else navUnAuthContent"></div>
+    <ng-template #navAuthContent>
+        <app-nav-auth></app-nav-auth>
+    </ng-template>
+    <ng-template #navUnAuthContent>
+        <app-nav-un-auth></app-nav-un-auth>
+    </ng-template>
+</div>
 
-<router-outlet></router-outlet>
+<!-- Body Section -->
+<h1>Body Section from here ....</h1>
+<!-- Footer Section -->

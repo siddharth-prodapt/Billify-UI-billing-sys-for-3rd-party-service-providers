@@ -9,44 +9,49 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HomeComponent } from './home/home.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { MyPlansComponent } from './dashboard/my-plans/my-plans.component';
+import { MyBillsComponent } from './dashboard/my-bills/my-bills.component';
 
-const routes: Routes = [ 
+const routes: Routes = [
   {
-  path:'',
-  component: LandingPageComponent
-},
-
-{
-path: 'signup',
-component:SignupComponent,
-},
-{
-path: 'login',
-component: LoginComponent,
-},
-{
-path:'dashboard/:username',
-component: DashboardComponent,
-children:[
-  {
-    path: 'about',
-    component:AboutUsComponent,
+    path: '',
+    component:LandingPageComponent
   },
   {
-    path: 'contact',
-    component: ContactUsComponent,
+    path: 'home',
+    component: LandingPageComponent
   },
-  // {
-//     path:'**',
-//     // component: DashboardComponent,
-//     redirectTo: '/dashboard'
-//   }
-]
-},
-{
-path:'**',
-component: PageNotFoundComponent,
-}];
+  {
+    path: 'signup',
+    component: SignupComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'dashboard/:username',
+    component: DashboardComponent,
+    children: [
+      {
+        path: 'myPlans',
+        component: MyPlansComponent,
+      },
+      {
+        path: 'myBills',
+        component: MyBillsComponent,
+      },
+      // {
+      //     path:'**',
+      //     // component: DashboardComponent,
+      //     redirectTo: '/dashboard'
+      //   }
+    ]
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent,
+  }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

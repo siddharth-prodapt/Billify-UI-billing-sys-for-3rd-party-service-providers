@@ -14,6 +14,11 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HomeComponent } from './home/home.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { NavUnAuthComponent } from './nav-un-auth/nav-un-auth.component';
+import { NavAuthComponent } from './nav-auth/nav-auth.component';
+import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
+import { MyPlansComponent } from './dashboard/my-plans/my-plans.component';
+import { MyBillsComponent } from './dashboard/my-bills/my-bills.component';
 
 
 @NgModule({
@@ -28,7 +33,12 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     AboutUsComponent,
     ContactUsComponent,
     HomeComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    NavUnAuthComponent,
+    NavAuthComponent,
+    SidebarComponent,
+    MyPlansComponent,
+    MyBillsComponent
   ],
   imports: [
     BrowserModule,

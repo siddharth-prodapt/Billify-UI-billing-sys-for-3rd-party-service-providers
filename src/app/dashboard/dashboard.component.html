@@ -1,7 +1,19 @@
-<h1>Welcome {{username}}</h1>
-<p>dashboard works!</p>
-<ul>
-    <li><a routerLink = 'about'>About Us</a></li>
-    <li><a routerLink = 'contact'>Contact Us</a></li>
-</ul>
-<router-outlet></router-outlet>
+<app-nav-auth></app-nav-auth>
+<h1>Welcome to DashBoard Mr.{{username}}</h1>
+
+<div class="row mx-4">
+    <div class="col-2">
+        <div class="row my-3">
+            <button routerLink="myPlans" class="btn btn-primary">myPlans</button>
+        </div>
+        <div class="row my-3">
+            <button routerLink="myBills" class="btn btn-primary">myBills</button>
+        </div>
+        <div class="row my-3">
+            <button class="btn btn-primary">random</button>
+        </div>
+    </div>
+    <div class="col-10">
+        <router-outlet></router-outlet>
+    </div>
+</div>
