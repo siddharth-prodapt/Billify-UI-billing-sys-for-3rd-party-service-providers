@@ -7,11 +7,11 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-  username:string|null='';
-
   constructor(private route: ActivatedRoute){
     
   }
+
+  username:string|null='';
 
   ngOnInit(){
     

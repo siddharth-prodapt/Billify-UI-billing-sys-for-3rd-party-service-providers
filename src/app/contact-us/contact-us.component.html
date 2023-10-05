@@ -1,1 +1,14 @@
-<p>contact-us works!</p>
+<!-- NavBar-Section -->
+<div>
+    <div *ngIf="loggedIn;then navAuthContent else navUnAuthContent"></div>
+    <ng-template #navAuthContent>
+        <app-nav-auth></app-nav-auth>
+    </ng-template>
+    <ng-template #navUnAuthContent>
+        <app-nav-un-auth></app-nav-un-auth>
+    </ng-template>
+</div>
+
+<!-- Body Section -->
+<h1>Body Section for Contact Us from here ....</h1>
+<!-- Footer Section -->

@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { MyPlansComponent } from './dashboard/my-plans/my-plans.component';
 import { MyBillsComponent } from './dashboard/my-bills/my-bills.component';
+import { AddMemberComponent } from './dashboard/add-member/add-member.component';
 
 const routes: Routes = [
   {
@@ -34,12 +35,22 @@ const routes: Routes = [
     component: DashboardComponent,
     children: [
       {
+        path: '',
+        component: MyPlansComponent,
+      },
+      {
         path: 'myPlans',
         component: MyPlansComponent,
       },
       {
         path: 'myBills',
         component: MyBillsComponent,
+        children: [
+        ]
+      },
+      {
+        path: 'addMember',
+        component: AddMemberComponent
       },
       // {
       //     path:'**',
@@ -47,6 +58,14 @@ const routes: Routes = [
       //     redirectTo: '/dashboard'
       //   }
     ]
+  },
+  {
+    path: 'aboutUs',
+    component: AboutUsComponent
+  },
+  {
+    path: 'contactUs',
+    component: ContactUsComponent
   },
   {
     path: '**',

@@ -2,18 +2,37 @@
 <h1>Welcome to DashBoard Mr.{{username}}</h1>
 
 <div class="row mx-4">
-    <div class="col-2">
-        <div class="row my-3">
-            <button routerLink="myPlans" class="btn btn-primary">myPlans</button>
-        </div>
-        <div class="row my-3">
-            <button routerLink="myBills" class="btn btn-primary">myBills</button>
-        </div>
-        <div class="row my-3">
-            <button class="btn btn-primary">random</button>
-        </div>
+    
+    <div class="col-3 text-center">
+        <div class="list-group">
+            <button type="button" class="list-group-item list-group-item-action">All Plans</button>
+            <button routerLink="myPlans" type="button" class="list-group-item list-group-item-action" aria-current="true">My Plans</button>
+            <button routerLink="addMember" type="button" class="list-group-item list-group-item-action">Add Member</button>
+            <div class="list-group-item">
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed p-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                View Members
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body p-2">
+                                <div class="list-group border-0">
+                                    <button type="button" class="list-group-item list-group-item-action p-1">Member-1</button>
+                                    <button type="button" class="list-group-item list-group-item-action p-1">Member-2</button>
+                                    <button type="button" class="list-group-item list-group-item-action p-1">Member-3</button>
+                                    <button type="button" class="list-group-item list-group-item-action p-1">Member-4</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button routerLink="myBills" type="button" class="list-group-item list-group-item-action">My Bills</button>
+          </div>
     </div>
-    <div class="col-10">
+    <div class="col-9 border rounded">
         <router-outlet></router-outlet>
     </div>
 </div>

@@ -1,1 +1,20 @@
-<p>about-us works!</p>
+<!-- NavBar-Section -->
+<div>
+    <div *ngIf="loggedIn;then navAuthContent else navUnAuthContent"></div>
+    <ng-template #navAuthContent>
+        <app-nav-auth></app-nav-auth>
+    </ng-template>
+    <ng-template #navUnAuthContent>
+        <app-nav-un-auth></app-nav-un-auth>
+    </ng-template>
+</div>
+
+<!-- Body Section -->
+<h1>Body Section for About Us from here ....</h1>
+<button type="button" class="btn btn-secondary"
+        data-bs-toggle="tooltip" data-bs-placement="top"
+        data-bs-custom-class="custom-tooltip"
+        data-bs-title="This top tooltip is themed via CSS variables.">
+  Custom tooltip
+</button>
+<!-- Footer Section -->

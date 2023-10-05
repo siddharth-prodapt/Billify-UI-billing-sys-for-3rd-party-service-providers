@@ -19,6 +19,7 @@ import { NavAuthComponent } from './nav-auth/nav-auth.component';
 import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
 import { MyPlansComponent } from './dashboard/my-plans/my-plans.component';
 import { MyBillsComponent } from './dashboard/my-bills/my-bills.component';
+import { AddMemberComponent } from './dashboard/add-member/add-member.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { MyBillsComponent } from './dashboard/my-bills/my-bills.component';
     NavAuthComponent,
     SidebarComponent,
     MyPlansComponent,
-    MyBillsComponent
+    MyBillsComponent,
+    AddMemberComponent
   ],
   imports: [
     BrowserModule,
