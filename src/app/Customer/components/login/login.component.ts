@@ -14,13 +14,10 @@ export class LoginComponent {
   username:string='';
   user:any
   l1:login=new login("","");
-  constructor(private a1:AuthService){}
+  constructor(private authservice:AuthService){}
   send(){
     console.log(this.l1)
-  //  let a=this.a1.post(this.l1)
-  //  a.subscribe((data)=>this.user=data)
-   
-   
+    this.authservice.post( this.l1).subscribe(res=>console.log("API RESponse",res));   
   }
 
    
