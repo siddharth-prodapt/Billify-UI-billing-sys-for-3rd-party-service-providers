@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-nav-un-auth',
@@ -6,4 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav-un-auth.component.css']
 })
 export class NavUnAuthComponent {
+  isChecked:boolean=true
+  constructor(private el:ElementRef) { }
 }

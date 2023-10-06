@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SignupComponent } from './signup/signup.component';
-import { LoginComponent } from './login/login.component';
-import { DefaultComponent } from './default/default.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { AboutUsComponent } from './about-us/about-us.component';
-import { ContactUsComponent } from './contact-us/contact-us.component';
-import { HomeComponent } from './home/home.component';
-import { LandingPageComponent } from './landing-page/landing-page.component';
-import { MyPlansComponent } from './dashboard/my-plans/my-plans.component';
-import { MyBillsComponent } from './dashboard/my-bills/my-bills.component';
-import { AddMemberComponent } from './dashboard/add-member/add-member.component';
+import { SignupComponent } from './Customer/components/signup/signup.component';
+import { LoginComponent } from './Customer/components/login/login.component';
+import { DashboardComponent } from './Customer/components/dashboard/dashboard.component';
+import { PageNotFoundComponent } from './Customer/SharedComponents/page-not-found/page-not-found.component';
+import { AboutUsComponent } from './Customer/components/about-us/about-us.component';
+import { ContactUsComponent } from './Customer/components/contact-us/contact-us.component';
+import { LandingPageComponent } from './Customer/components/landing-page/landing-page.component';
+import { MyPlansComponent } from './Customer/components/dashboard/my-plans/my-plans.component';
+import { MyBillsComponent } from './Customer/components/dashboard/my-bills/my-bills.component';
+import { AddMemberComponent } from './Customer/components/dashboard/add-member/add-member.component';
+import { ShowBillComponent } from './Customer/components/dashboard/show-bill/show-bill.component';
 
 const routes: Routes = [
   {
@@ -24,11 +23,11 @@ const routes: Routes = [
   },
   {
     path: 'signup',
-    component: SignupComponent,
+    component: SignupComponent
   },
   {
     path: 'login',
-    component: LoginComponent,
+    component: LoginComponent
   },
   {
     path: 'dashboard/:username',
@@ -36,17 +35,19 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: MyPlansComponent,
+        component: MyPlansComponent
       },
       {
         path: 'myPlans',
-        component: MyPlansComponent,
+        component: MyPlansComponent
       },
       {
         path: 'myBills',
-        component: MyBillsComponent,
-        children: [
-        ]
+        component: MyBillsComponent
+      },
+      {
+        path:'showBills/:bid',
+        component:ShowBillComponent
       },
       {
         path: 'addMember',

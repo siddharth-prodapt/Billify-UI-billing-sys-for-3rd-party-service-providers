@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,13 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'], 
 })
 export class AppComponent {
-  title = 'myApp';
-  name: string = 'Sid';
-  password:string='';
+  constructor(private el:ElementRef) { }
 
-  list:number[] = [10, 20, 30];
 
-  trackByFn(index:number):number{
-    return index;
+  ngAfterViewInit() {
+    // Access the DOM element
+    const element = this.el.nativeElement;
+    console.log('changed')
+    // Assign a known HTML attribute
+    element.setAttribute('data-bs-theme', '');
   }
+  
 }
