@@ -1,33 +1,7 @@
-
-        /* Custom CSS for sidebar */
-        .sidebar {
-            height: 100%;
-            width: 250px;
-            position: fixed;
-            top: 0;
-            left: -250px; /* Initially hidden */
-            background-color: #333;
-            transition: left 0.3s ease-in-out;
-        }
-
-        .sidebar.show {
-            left: 0; /* Visible */
-        }
-
-        .sidebar ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .sidebar ul li {
-            padding: 8px;
-            text-align: center;
-        }
-
-        /* Button to toggle the sidebar */
-        .toggle-btn {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            cursor: pointer;
-        }
+.accordion-button::before {
+    display: none; /* Hide the icon */
+}
+  
+.accordion-button.collapsed::before {
+    display: none; /* Hide the icon for the collapsed state as well */
+}

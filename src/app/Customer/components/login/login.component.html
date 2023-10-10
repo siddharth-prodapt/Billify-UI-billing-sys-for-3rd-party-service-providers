@@ -1,7 +1,7 @@
 <app-nav-un-auth></app-nav-un-auth>
 <div class="row mt-5" id="login-form-row">
     <div class="col-4 mx-auto border rounded shadow">
-        <form>
+        <form class="needs-validation" (ngSubmit)="send()" novalidate>
             <div class="row mb-3">
                 <div class="col-auto mx-auto">
                     <div class="display-6">Log-In</div>
@@ -9,20 +9,22 @@
             </div>
             <hr>
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address/Phone Number</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" name="name" aria-describedby="emailHelp" [(ngModel)]="l1.username">
-                <div id="emailHelp" class="form-text">We'll never share your email/phone with anyone else.</div>
+                <label for="email" class="form-label">Email address/Phone Number</label>
+                <input type="text" class="form-control " name="username" id="email" aria-describedby="emailHelp" [(ngModel)]="user.name">
+                <small id="email_error" class="text-danger"></small>
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" name="password" id="exampleInputPassword1" [(ngModel)]="l1.password">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" name="password" id="password" [(ngModel)]="user.password">
+                <small id="password_error" class="text-danger"></small>
             </div>
             <div class="mb-3" style="text-align: end;">
                 <a href="">Forgot Password?</a>
             </div>
             <div class="mb-3" style="text-align: center;">
-                <button routerLink="/dashboard/sai" type="submit" (click)="send()" class="btn btn-primary">LogIn</button>
+                <button type="submit" class="btn btn-primary">LogIn</button>
             </div>
+            
         </form>
     </div>
 </div>

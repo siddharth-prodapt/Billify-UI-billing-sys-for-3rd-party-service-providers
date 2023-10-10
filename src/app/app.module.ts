@@ -13,12 +13,14 @@ import { ContactUsComponent } from './Customer/components/contact-us/contact-us.
 import { LandingPageComponent } from './Customer/components/landing-page/landing-page.component';
 import { NavUnAuthComponent } from './Customer/SharedComponents/nav-un-auth/nav-un-auth.component';
 import { NavAuthComponent } from './Customer/SharedComponents/nav-auth/nav-auth.component';
-import { SidebarComponent } from './Customer/components/dashboard/sidebar/sidebar.component';
 import { MyPlansComponent } from './Customer/components/dashboard/my-plans/my-plans.component';
 import { MyBillsComponent } from './Customer/components/dashboard/my-bills/my-bills.component';
 import { AddMemberComponent } from './Customer/components/dashboard/add-member/add-member.component';
 import { ShowBillComponent } from './Customer/components/dashboard/show-bill/show-bill.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ViewMembersComponent } from './Customer/components/dashboard/view-members/view-members.component';
+import { AllPlansComponent } from './Customer/components/dashboard/all-plans/all-plans.component';
+import { ShowPlansComponent } from './Customer/SharedComponents/show-plans/show-plans.component';
 
 
 @NgModule({
@@ -33,17 +35,19 @@ import { HttpClientModule } from '@angular/common/http';
     LandingPageComponent,
     NavUnAuthComponent,
     NavAuthComponent,
-    SidebarComponent,
     MyPlansComponent,
     MyBillsComponent,
     AddMemberComponent,
     ShowBillComponent,
+    ViewMembersComponent,
+    AllPlansComponent,
+    ShowPlansComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

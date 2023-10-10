@@ -11,6 +11,8 @@ import { MyPlansComponent } from './Customer/components/dashboard/my-plans/my-pl
 import { MyBillsComponent } from './Customer/components/dashboard/my-bills/my-bills.component';
 import { AddMemberComponent } from './Customer/components/dashboard/add-member/add-member.component';
 import { ShowBillComponent } from './Customer/components/dashboard/show-bill/show-bill.component';
+import { ViewMembersComponent } from './Customer/components/dashboard/view-members/view-members.component';
+import { AllPlansComponent } from './Customer/components/dashboard/all-plans/all-plans.component';
 
 const routes: Routes = [
   {
@@ -38,6 +40,10 @@ const routes: Routes = [
         component: MyPlansComponent
       },
       {
+        path: 'allPlans',
+        component:AllPlansComponent
+      },
+      {
         path: 'myPlans',
         component: MyPlansComponent
       },
@@ -52,6 +58,10 @@ const routes: Routes = [
       {
         path: 'addMember',
         component: AddMemberComponent
+      },
+      {
+        path: 'viewMember/:name',
+        component: ViewMembersComponent
       },
       // {
       //     path:'**',
