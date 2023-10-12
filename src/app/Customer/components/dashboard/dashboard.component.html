@@ -13,14 +13,14 @@
             <button routerLink="myPlans" type="button" class="list-group-item list-group-item-action" aria-current="true"><i class="bi bi-bookmarks-fill"></i></button>
             <button routerLink="addMember" type="button" class="list-group-item list-group-item-action"><i class="bi bi-person-add"></i></button>
             <div class="list-group-item">
-                <div class="accordion">
+                <div class="accordion" id="#accordionExampleOne">
                     <div class="accordion-item">
                         <h2 class="accordion-header">
-                            <button (click)="openNav()" class="btn p-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <button (click)="openNav()" class="btn p-2" type="button" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseTwo">
                                 <i class="bi bi-people"></i>
                             </button>
                         </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExampleOne">
                             <div class="accordion-body p-0">
                                 <div *ngFor="let m of allMembers" class="list-group border-0">
                                     <button type="button" class="list-group-item list-group-item-action p-1"><i class="bi bi-person"></i></button>
@@ -44,20 +44,24 @@
             <button routerLink="allPlans" type="button" class="list-group-item list-group-item-action">All Plans</button>
             <button routerLink="myPlans" type="button" class="list-group-item list-group-item-action" aria-current="true">My Plans</button>
             <button routerLink="addMember" type="button" class="list-group-item list-group-item-action">Add Member</button>
+            <!-- <button routerLink="/dashboard/sai/viewMember/prince" type="button" class="list-group-item list-group-item-action">Prince</button>
+            <button routerLink="/dashboard/sai/viewMember/shyam" type="button" class="list-group-item list-group-item-action">Shyam</button> -->
             <div class="list-group-item">
-                <div class="accordion">
+                <div class="accordion" id="#accordionExampleTwo">
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed p-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                 View Members
                             </button>
                         </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExampleTwo">
                             <div class="accordion-body p-2">
                                 
+                                <!-- <a routerLink="/dashboard/{{username}}/viewMember/prince" class="list-group-item list-group-item-action p-1">prince</a>
+                                <a routerLink="/dashboard/{{username}}/viewMember/shyam" class="list-group-item list-group-item-action p-1">shyam</a> -->
                                 <div *ngFor="let m of allMembers" class="list-group border-0">
-                                    <!-- <app-view-members [user]="m" ></app-view-members> -->
-                                    <button type="button" (click)="triggerRefresh()" routerLink="/dashboard/{{username}}/viewMember/{{m.name}}" class="list-group-item list-group-item-action p-1">{{m.name}}</button>
+                                    
+                                    <button (click)="loadComponent($event)" class="list-group-item list-group-item-action p-1">{{m.name}}</button>
                                 </div>
                             </div>
                         </div>
@@ -68,7 +72,6 @@
         </div>
     </div>
     <div class="col-xs-9 col-md-9 border rounded" id="content">
-        
         <router-outlet></router-outlet>
     </div>
 </div>

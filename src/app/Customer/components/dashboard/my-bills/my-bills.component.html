@@ -1,5 +1,5 @@
 <div class="row">
-    <router-outlet></router-outlet>
+    <!-- <router-outlet></router-outlet> -->
     <div class="row mt-2 mx-auto">
         <div class="col-3">
             <h3>All Bills</h3>
@@ -24,7 +24,7 @@
             <tbody>
                 <tr>
                   <th scope="row">1</th>
-                  <td><a routerLink="/dashboard/sai/showBills/104">104</a></td>
+                  <td><a routerLink="/dashboard/{{username}}/showBills/104">104</a></td>
                   <td>21/10/2023</td>
                   <td>31/10/2023</td>
                   <td>pending</td>
@@ -33,7 +33,7 @@
                   </tr>
               <tr>
                 <th scope="row">2</th>
-                <td><a routerLink="/dashboard/sai/showBills/103">103</a></td>
+                <td><a routerLink="/dashboard/{{username}}/showBills/103">103</a></td>
                 <td>21/09/2023</td>
                 <td>30/09/2023</td>
                 <td>paid</td>
@@ -42,7 +42,7 @@
               </tr>
               <tr>
                 <th scope="row">3</th>
-                <td><a routerLink="/dashboard/sai/showBills/102">102</a></td>
+                <td><a routerLink="/dashboard/{{username}}/showBills/102">102</a></td>
                 <td>21/08/2023</td>
                 <td>31/08/2023</td>
                 <td>paid</td>

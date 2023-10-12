@@ -1,17 +1,23 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnChanges, SimpleChanges } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { ViewMembersComponent } from './view-members/view-members.component';
 import { ViewMembersService } from '../../services/view-members.service';
+import { Observable } from 'rxjs';
+import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent {
+export class DashboardComponent{
 
-  constructor(private route: ActivatedRoute,private viewMemberService:ViewMembersService){ }
+  constructor(private route: ActivatedRoute,private viewMemberService:ViewMembersService,private router:Router){ }
+
+  myObservable = new Observable((observer)=>{
+    observer.next(this.username)
+  })
   
   username:string|null="";
   allMembers:members[] = [
@@ -26,14 +32,13 @@ export class DashboardComponent {
     }
   ]
 
-  triggerRefresh(){
-    this.viewMemberService.triggerRefresh()
+  loadComponent(data:any){
+    const memberName = data.target.innerHTML
+    // this.router.navigate(['/dashboard/'+this.username+'/viewMember/'+memberName])
+    this.router.navigateByUrl('/dashboard/sai',{skipLocationChange:true}).then(()=>{
+      this.router.navigate(['/dashboard/'+this.username+'/viewMember/'+memberName])
+    })
   }
-  showMember(){
-    console.log("Called show Members function")
-    // this.view.ngOnInit()
-  }
-
   openNav(){
     console.log('clicked open nav')
     document.querySelector("#sideMenuCollapsed")?.classList.add("d-none")

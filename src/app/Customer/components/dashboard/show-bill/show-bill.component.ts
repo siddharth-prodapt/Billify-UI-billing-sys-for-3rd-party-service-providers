@@ -12,7 +12,7 @@ export class ShowBillComponent {
   }
   bid:string|null=''
   ngOnInit(){
-    
+    console.log('noOnInit of show bill')
     this.bid = this.route.snapshot.paramMap.get('bid');
   }
 }

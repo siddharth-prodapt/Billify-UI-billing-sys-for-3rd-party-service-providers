@@ -69,7 +69,7 @@ export class LoginComponent {
   }
   setRoute(isValidUser:boolean){
     if(isValidUser){
-      this.router.navigate(["/dashboard/sai"])
+      this.router.navigate(["/dashboard/mohan"])
     }
   }
 

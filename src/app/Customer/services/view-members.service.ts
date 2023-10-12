@@ -1,19 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { members } from '../components/dashboard/dashboard.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ViewMembersService {
-
+  allMembers:members[]=[]
   constructor() { }
-  private refreshSubject = new Subject<void>();
-
-  // Observable that other components can subscribe to
-  refresh$ = this.refreshSubject.asObservable();
-
-  // Method to trigger a refresh
-  triggerRefresh() {
-    this.refreshSubject.next();
+  getAllMembers(recievedMembers:members[]){
+    this.allMembers = recievedMembers
+    console.log('In-service',this.allMembers)
   }
 }
