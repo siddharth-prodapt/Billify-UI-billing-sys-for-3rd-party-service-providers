@@ -9,14 +9,14 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
-            <button type="button" class="list-group-item list-group-item-action">All</button>
+            <button routerLink="allPlans" type="button" class="list-group-item list-group-item-action">All</button>
             <button routerLink="myPlans" type="button" class="list-group-item list-group-item-action" aria-current="true"><i class="bi bi-bookmarks-fill"></i></button>
             <button routerLink="addMember" type="button" class="list-group-item list-group-item-action"><i class="bi bi-person-add"></i></button>
             <div class="list-group-item">
                 <div class="accordion" id="#accordionExampleOne">
                     <div class="accordion-item">
                         <h2 class="accordion-header">
-                            <button (click)="openNav()" class="btn p-2" type="button" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseTwo">
+                            <button (click)="openNav()" class="btn p-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                 <i class="bi bi-people"></i>
                             </button>
                         </h2>
@@ -31,21 +31,21 @@
                 </div>
             </div>
             <button routerLink="myBills" type="button" class="list-group-item list-group-item-action"><i class="bi bi-receipt-cutoff"></i></button>
+            <button routerLink="myProfile" type="button" class="list-group-item list-group-item-action"><i class="bi bi-person-circle"></i></button>
         </div>
     </div>
     <div class="col-xs-3 col-md-3 text-center border rounded" id="sideMenu">
         <div class="list-group">
             <div class="navbar px-3">
                 <h3 class="mb-0">Menu</h3>
-                <button class="btn" type="button" (click)="closeNav()" id="navToggler">
+                <button class="btn" type="button"  (click)="closeNav()" id="navToggler">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
             <button routerLink="allPlans" type="button" class="list-group-item list-group-item-action">All Plans</button>
             <button routerLink="myPlans" type="button" class="list-group-item list-group-item-action" aria-current="true">My Plans</button>
             <button routerLink="addMember" type="button" class="list-group-item list-group-item-action">Add Member</button>
-            <!-- <button routerLink="/dashboard/sai/viewMember/prince" type="button" class="list-group-item list-group-item-action">Prince</button>
-            <button routerLink="/dashboard/sai/viewMember/shyam" type="button" class="list-group-item list-group-item-action">Shyam</button> -->
+            
             <div class="list-group-item">
                 <div class="accordion" id="#accordionExampleTwo">
                     <div class="accordion-item">
@@ -57,8 +57,7 @@
                         <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExampleTwo">
                             <div class="accordion-body p-2">
                                 
-                                <!-- <a routerLink="/dashboard/{{username}}/viewMember/prince" class="list-group-item list-group-item-action p-1">prince</a>
-                                <a routerLink="/dashboard/{{username}}/viewMember/shyam" class="list-group-item list-group-item-action p-1">shyam</a> -->
+                                
                                 <div *ngFor="let m of allMembers" class="list-group border-0">
                                     
                                     <button (click)="loadComponent($event)" class="list-group-item list-group-item-action p-1">{{m.name}}</button>
@@ -69,6 +68,7 @@
                 </div>
             </div>
             <button routerLink="myBills" type="button" class="list-group-item list-group-item-action">My Bills</button>
+            <button routerLink="myProfile" type="button" class="list-group-item list-group-item-action">My Profile</button>
         </div>
     </div>
     <div class="col-xs-9 col-md-9 border rounded" id="content">

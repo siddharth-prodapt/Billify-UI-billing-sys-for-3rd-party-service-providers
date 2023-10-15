@@ -1,82 +1,104 @@
 <app-nav-un-auth></app-nav-un-auth>
-<div class="row mt-5" id="signup-form-row">
+<div class="row mt-5">
     <div class="col-5 mx-auto border rounded shadow">
-        <form (ngSubmit)="validate()">
+        <form #signUpForm="ngForm" autocomplete="off">
             <div class="row mb-3">
                 <div class="col-auto mt-2 mx-auto">
                     <div class="display-6">Sign-Up</div>
                 </div>
             </div>
             <hr>
+            <!-- Name field -->
             <div class="mb-3">
                 <label for="Name" class="form-label">Full Name<small class="required">*</small></label>
-                <input type="text" class="form-control" name="name" id="Name" [(ngModel)]="user.name">
-            </div>
-            <div class="mb-3">
-                <label for="PhoneNumber" class="form-label">Email<small class="required">*</small></label>
-                <input type="email" class="form-control" name="email" id="Email" [(ngModel)]="user.email">
-            </div>
-            <!-- <div class="mb-3">
-                <label for="AdhaarNumber" class="form-label">Adhaar Number<small class="required">*</small></label>
-                <input type="number" class="form-control" name="adhaarNumber" id="AdhaarNumber" [(ngModel)]="user.adhaarNumber">
-            </div>
-            <div class="mb-3">
-                <label for="DateOfBirth" class="form-label">Date of Birth<small class="required">*</small></label>
-                <input type="date" class="form-control" name="dob" id="DateOfBirth" [(ngModel)]="user.dob">
-            </div>
-            <div class="row">
-                <label for="Address" class="form-label">Address<small class="required">*</small></label>
-            </div>
-            <div class="mb-3 border rounded p-2">
-                <label for="Address" class="form-label">House-No/Street/Line<small class="required">*</small></label>
-                <input type="text" class="form-control" name="houseNumber" id="Address" [(ngModel)]="user.houseNumber">
-                <div class="row mt-1">
-                    <div class="col-auto mx-auto">
-                        <label for="City" class="form-label">City<small class="required">*</small></label>
-                        <input type="text" class="form-control" name="city" id="City" [(ngModel)]="user.city">
-                    </div>
-                    <div class="col-auto mx-auto">
-                        <label for="State" class="form-label">State<small class="required">*</small></label>
-                        <input type="text" class="form-control" name="state" id="State" [(ngModel)]="user.state">
-                    </div>
+                <input #name="ngModel"
+                    appNameValidator
+                    type="text"
+                    class="form-control"
+                    name="name"
+                    [(ngModel)]="user.name"
+                    required>
+                <div></div>
+                <div *ngIf="name.dirty && name.errors?.['required']">
+                    <small class="text-danger">Full Name is required field</small>
                 </div>
-                <div class="row mt-1">
-                    <div class="col-auto mx-auto">
-                        <label for="Country" class="form-label">Country<small class="required">*</small></label>
-                        <input type="text" class="form-control" name="country" id="Country" [(ngModel)]="user.country">
-                    </div>
-                    <div class="col-auto mx-auto">
-                        <label for="Pincode" class="form-label">Pincode<small class="required">*</small></label>
-                        <input type="number" class="form-control" name="pincode" id="Pincode" [(ngModel)]="user.pincode">
-                    </div>
+                <div *ngIf="name.touched && name.errors?.['invalidName']">
+                    <small class="text-danger">Please enter a valid name</small>
                 </div>
-            </div> -->
+            </div>
+            <!-- Email field -->
+            <div class="mb-3">
+                <label for="Email" class="form-label">Email<small class="required">*</small></label>
+                <input #email="ngModel"
+                    pattern="\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b"
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    [(ngModel)]="user.email" required>
+                <div *ngIf="email.dirty && email.errors?.['required']">
+                    <small class="text-danger">Email is a required field</small>
+                </div>
+                <div *ngIf="email.touched && email.errors?.['pattern']">
+                    <small class="text-danger">Please enter a valid email</small>
+                </div>
+            </div>
+            <!--  -->
             <div class="mb-3 border rounded p-2">
                 <label for="UserType" class="form-label">User Type<small class="required">*</small></label>
                 <div class="row">
                     <div class="form-check col-auto mx-auto">
-                        <input class="form-check-input" type="radio" name="userTypes" id="superuser" value="superuser" [(ngModel)]="user.userType">
+                        <input #userType="ngModel" [(ngModel)]="user.userType" class="form-check-input" type="radio" name="userTypes" id="superuser" value="superuser" required>
                         <label class="form-check-label" for="exampleRadios1">Super User</label>
                     </div>
                     <div class="form-check col-auto mx-auto">
-                        <input class="form-check-input" type="radio" name="userTypes" id="normaluser" value="normaluser" checked [(ngModel)]="user.userType">
-                        <label class="form-check-label" for="exampleRadios1">Normal User</label>
+                        <input [(ngModel)]="user.userType" class="form-check-input" type="radio" name="userTypes" id="normaluser" value="normaluser" required>
+                        <label class="form-check-label" for="exampleRadios2">Normal User</label>
                     </div>
+                </div>
+                <div *ngIf="userType.dirty && userType.errors?.['required']">
+                    <small class="text-danger">User Type is required</small>
                 </div>
             </div>
             <div class="mb-3">
-                <label for="Password" class="form-label">Password<small class="required">*</small></label>
-                
-                <input type="password" class="form-control" name="password" id="Password" [(ngModel)]="user.password">
-                <small>Password must contain at least 6-18 characters</small>
+                <label for="Password" class="form-label">Password<small class="required">*</small>&nbsp;
+                    <i class="bi bi-info-circle"
+                        style="cursor: pointer;margin-top: 2px;"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="right"
+                        data-bs-custom-class="custom-tooltip"
+                        data-bs-title="Password must contain at least, 8 characters, one uppercase letter, one lowercase letter, one numeric digit, one special character.">
+                    </i>
+                </label>
+                <input #password="ngModel"
+                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+                    type="password"
+                    class="form-control"
+                    name="password"
+                    [(ngModel)]="user.password" required>
+                <div *ngIf="password.dirty && password.errors?.['required']">
+                    <small class="text-danger">Password is a required field</small>
+                </div>
+                <div *ngIf="password.touched && password.errors?.['pattern']">
+                    <small class="text-danger">Password must contain at least, 8 characters, one uppercase letter, one lowercase letter, one numeric digit, one special character.</small>
+                </div>
             </div>
             <div class="mb-3">
                 <label for="ConfirmPassword1" class="form-label">Confirm Password<small class="required">*</small></label>
-                <input type="password" class="form-control" id="ConfirmPassword">
-                
+                <input #cnfPassword="ngModel"
+                    [appCnfpassValidator]="'password'"
+                    type="password"
+                    class="form-control"
+                    name="confirmPassword"
+                    [(ngModel)]="user.confirmPassword" required>
+                <div *ngIf="cnfPassword.dirty && cnfPassword.errors?.['required']">
+                    <small class="text-danger">Password is a required field</small>
+                </div>
+                <div *ngIf="(password.value != cnfPassword.value)">
+                    <small class="text-danger">Confirm Password and Password must be same</small>
+                </div>
             </div>
             <div class="mb-3" style="text-align: center;">
-                <button type="submit" class="btn btn-primary">Register</button>
+                <button [disabled]="!signUpForm.valid" type="submit" class="btn btn-primary">Register</button>
             </div>
         </form>
     </div>

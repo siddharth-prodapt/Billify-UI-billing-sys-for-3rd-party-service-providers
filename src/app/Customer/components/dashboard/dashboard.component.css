@@ -1,7 +1,3 @@
-.accordion-button::before {
-    display: none; /* Hide the icon */
-}
-  
-.accordion-button.collapsed::before {
-    display: none; /* Hide the icon for the collapsed state as well */
+.btn{
+    border: none;
 }

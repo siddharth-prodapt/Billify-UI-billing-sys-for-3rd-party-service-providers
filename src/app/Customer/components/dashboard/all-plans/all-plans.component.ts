@@ -14,7 +14,7 @@ export class AllPlansComponent {
   ngOnInit(){
     this.allPlanService.get().subscribe((data) => {console.log("ALL PlanDetails: "+data);
     
-    this.allPlans=data as Plans[];
+    this.allPlans=data as Plans[]; 
     
     console.log("This. all plans",this.allPlans);
   });

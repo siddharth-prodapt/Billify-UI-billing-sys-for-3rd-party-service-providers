@@ -21,6 +21,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ViewMembersComponent } from './Customer/components/dashboard/view-members/view-members.component';
 import { AllPlansComponent } from './Customer/components/dashboard/all-plans/all-plans.component';
 import { ShowPlansComponent } from './Customer/SharedComponents/show-plans/show-plans.component';
+import { ProfileComponent } from './Customer/components/dashboard/profile/profile.component';
+import { NameValidatorDirective } from './Customer/validators/name-validator.directive';
+import { CnfpassValidatorDirective } from './Customer/validators/cnfpass-validator.directive';
 
 
 
@@ -43,6 +46,9 @@ import { ShowPlansComponent } from './Customer/SharedComponents/show-plans/show-
     ViewMembersComponent,
     AllPlansComponent,
     ShowPlansComponent,
+    ProfileComponent,
+    NameValidatorDirective,
+    CnfpassValidatorDirective,
   ],
   imports: [
     BrowserModule,

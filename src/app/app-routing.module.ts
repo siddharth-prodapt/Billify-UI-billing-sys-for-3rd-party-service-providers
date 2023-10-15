@@ -13,6 +13,7 @@ import { AddMemberComponent } from './Customer/components/dashboard/add-member/a
 import { ShowBillComponent } from './Customer/components/dashboard/show-bill/show-bill.component';
 import { ViewMembersComponent } from './Customer/components/dashboard/view-members/view-members.component';
 import { AllPlansComponent } from './Customer/components/dashboard/all-plans/all-plans.component';
+import { ProfileComponent } from './Customer/components/dashboard/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -62,6 +63,10 @@ const routes: Routes = [
       {
         path: 'viewMember/:name',
         component: ViewMembersComponent
+      },
+      {
+        path: 'myProfile',
+        component: ProfileComponent
       },
       // {
       //     path:'**',
