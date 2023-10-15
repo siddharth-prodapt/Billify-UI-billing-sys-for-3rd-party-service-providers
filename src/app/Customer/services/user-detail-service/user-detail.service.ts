@@ -11,7 +11,7 @@ export class UserDetailService {
     name:"Sai Mohan",
     email:"mohansaip2001@gmail.com",
     adhaarNumber:779297278124,
-    dob:"10/11/2001",
+    dob:new Date(2001,10,10),
     houseNumber:"LB-307, Badagada Brit Colony",
     city:"Bhubaneswar",
     state:"Odisha",

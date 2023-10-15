@@ -12,6 +12,7 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class LoginComponent {
   inLogin:boolean=true
+  isLoggedIn:boolean=false
   username:string='';
   user:login=new login("","");
   constructor(private a1:AuthService,private router:Router){}
@@ -20,7 +21,11 @@ export class LoginComponent {
     
   }
   setRoute(){
-    this.router.navigate(["/dashboard/mohan"])
+    this.isLoggedIn=true
+    setTimeout(()=>{
+      this.isLoggedIn=false
+      this.router.navigate(["/dashboard/mohan"])
+    },3000)
   }
    
 }

@@ -2,7 +2,7 @@ export class user{
     name:string
     email?:string
     adhaarNumber:number
-    dob:string
+    dob:Date
     houseNumber:string
     city:string
     state:string
@@ -14,7 +14,7 @@ export class user{
     constructor(name:string,
         email:string,
         adhaarNumber:number,
-        dob:string,
+        dob:Date,
         houseNumber:string,
         city:string,
         state:string,

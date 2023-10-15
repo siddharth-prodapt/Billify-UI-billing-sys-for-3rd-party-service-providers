@@ -36,10 +36,16 @@
             <div class="mb-3" style="text-align: end;">
                 <a href="">Forgot Password?</a>
             </div>
-            {{email.invalid}}
-            {{password.invalid}}
+            <!-- {{email.invalid}}
+            {{password.invalid}} -->
             <div class="mb-3" style="text-align: center;">
-                <button (click)="setRoute()" type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">LogIn</button>
+                <button (click)="setRoute()" 
+                    type="submit" 
+                    class="btn btn-primary" 
+                    [disabled]="!loginForm.valid || isLoggedIn">
+                    <span *ngIf="isLoggedIn" class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                    LogIn
+                </button>
             </div>
         </form>
     </div>

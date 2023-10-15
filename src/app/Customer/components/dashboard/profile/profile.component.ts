@@ -10,7 +10,7 @@ import { user } from 'src/app/Customer/services/user-detail-service/user.Model';
 })
 export class ProfileComponent {
   p!:user
-  p1:user=new user("","",0,"","","","","",0,"","")
+  // p1:user=new user("","",0,,"","","","",0,"","")
   editAble:boolean=true
 
   constructor(private userDetailService:UserDetailService){ }
@@ -35,7 +35,9 @@ export class ProfileComponent {
     profileForm.resetForm(this.p)
   }
   saveChanges(profileForm:NgForm){
-    console.log(profileForm.value)
+    profileForm.value.dob = new Date(profileForm.value.dob).toISOString()
+    console.log(profileForm.value.dob)
+    this.editAble=true
   }
 }
 

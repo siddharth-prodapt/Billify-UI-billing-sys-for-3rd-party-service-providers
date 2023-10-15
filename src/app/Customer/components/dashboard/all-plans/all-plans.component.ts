@@ -12,10 +12,9 @@ export class AllPlansComponent {
   constructor(private allPlanService:PlanDetailsService) { }
   
   ngOnInit(){
-    this.allPlanService.get().subscribe((data) => {console.log("ALL PlanDetails: "+data);
-    
-    this.allPlans=data as Plans[]; 
-    
+    this.allPlanService.getPlans().subscribe((data) => {
+    console.log("ALL PlanDetails: "+data);
+    this.allPlans=data 
     console.log("This. all plans",this.allPlans);
   });
   }
