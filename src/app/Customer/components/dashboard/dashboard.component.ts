@@ -1,11 +1,9 @@
 import { Component, OnChanges, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { ViewMembersComponent } from './view-members/view-members.component';
-import { ViewMembersService } from '../../services/view-members.service';
 import { Observable } from 'rxjs';
-import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
-import { AuthService } from '../../services/auth-service/auth.service';
+import { Member } from '../../services/member-services/Member.Model';
+import { GetMemberService } from '../../services/member-services/get-member.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,23 +12,13 @@ import { AuthService } from '../../services/auth-service/auth.service';
 })
 export class DashboardComponent{
 
-  constructor(private authService:AuthService,private route: ActivatedRoute,private viewMemberService:ViewMembersService,private router:Router){ }
+  constructor(private getMemberService:GetMemberService,private route: ActivatedRoute,private router:Router){ }
   myObservable = new Observable((observer)=>{
     observer.next(this.username)
   })
   
   username:string|null="";
-  allMembers:members[] = [
-    {
-      name:"prince",id:9093
-    },
-    {
-      name:"shyam",id:9094
-    },
-    {
-      name:"radhe",id:9095
-    }
-  ]
+  allMembers:Member[]=[]
 
   loadComponent(data:any){
     const memberName = data.target.innerHTML
@@ -53,6 +41,16 @@ export class DashboardComponent{
   }
   ngOnInit(){
     this.username = this.route.snapshot.paramMap.get('username');
+    console.log('called dashboard init')
+    this.getMemberService.getMemberUser().subscribe(
+      (response)=>{
+        console.log(response.body)
+        this.allMembers = response.body as Member[]
+      },
+      (error)=>{
+        console.log(error)
+      }
+    )
   }
 
   // @ViewChild(ViewMembersComponent) viewMembers:ViewMembersComponent;
@@ -72,4 +70,5 @@ export class members{
     this.name = name
     this.id = id
   }
+
 }

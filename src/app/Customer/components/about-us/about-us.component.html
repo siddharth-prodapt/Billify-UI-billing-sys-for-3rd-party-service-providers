@@ -1,12 +1,13 @@
 <!-- NavBar-Section -->
 <div>
-    <div *ngIf="loggedIn;then navAuthContent else navUnAuthContent"></div>
+    <app-nav-auth></app-nav-auth>
+    <!-- <div *ngIf="loggedIn;then navAuthContent else navUnAuthContent"></div>
     <ng-template #navAuthContent>
         <app-nav-auth></app-nav-auth>
     </ng-template>
     <ng-template #navUnAuthContent>
         <app-nav-un-auth></app-nav-un-auth>
-    </ng-template>
+    </ng-template> -->
 </div>
 
 <!-- Body Section -->

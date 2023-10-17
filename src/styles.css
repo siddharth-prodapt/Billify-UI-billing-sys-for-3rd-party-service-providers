@@ -1,4 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+:root{
+    --primary:#F77754
+}
+.my-btn-primary{
+    color: var(--primary);
+}
 a{
     text-decoration: none !important;
 }

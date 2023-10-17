@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http'
 import { Login } from './login.Model';
 import { CONSTANT } from 'src/app/config/constant/constant';
 import { Observable, Subscribable, Subscriber, Subscription } from 'rxjs';
+import { SignUp } from './SignUp.Model';
 
 
 @Injectable({
@@ -21,5 +22,12 @@ export class AuthService {
     })
     console.log(user.email,user.password)
     return this.http.post(CONSTANT.BASE_URL+"/auth/signin",user,{headers,observe:'response'})
+  }
+  public signUpUser(user:SignUp){
+    const headers=new HttpHeaders({
+      'Content-Type':'application/json'
+    })
+    console.log(user.email,user.password,user.password,user.userType)
+    return this.http.post(CONSTANT.BASE_URL+"/auth/signup",user,{headers,observe:'response'})
   }
 }

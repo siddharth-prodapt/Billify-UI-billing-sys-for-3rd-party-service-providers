@@ -16,25 +16,13 @@
                 <li class="nav-item">
                     <a routerLink="/contactUs" class="nav-link" href="#">ContactUs</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                <li *ngIf="logout" class="nav-item">
+                    <a type="button" (click)="navigate()" class="nav-link">Dashboard</a>
                 </li>
             </ul>
-            <button (click)="logOut()" class="me-2 btn btn-outline-success" type="submit">LogOut</button>
+            <button *ngIf="logout" (click)="logOut()" class="me-2 btn btn-outline-success" type="submit">LogOut</button>
+            <button *ngIf="!logout" routerLink="/login" class="me-2 btn btn-outline-success" type="submit">LogIn</button>
+            <button *ngIf="!logout" routerLink="/signup" class="me-2 btn btn-outline-success" type="submit">SignUp</button>
         </div>
     </div>
 </nav>

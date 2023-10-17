@@ -1,0 +1,7 @@
+:root{
+    --primary:#F77754
+}
+.btn-primary{
+    background-color: var(--primary);
+    outline-color: var(--primary);
+}

@@ -3,21 +3,26 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <form>
+                    <form (ngSubmit)="addMember()" autocomplete="off">
                         <div class="row mb-3">
                             <div class="col-auto mx-auto">
                                 <div class="display-6">Add Family Member</div>
                             </div>
                         </div>
                         <hr>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Email address/Phone Number</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            <div id="emailHelp" class="form-text">We'll never share your email/phone with anyone else.</div>
+                        <div class="form-floating mb-3">
+                            <input type="text" placeholder="name@example.com" class="form-control" name="email" aria-describedby="emailHelp">
+                            <label for="email" class="form-label">Email address</label>
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
-                        <div class="mb-3">
+                        <div class="form-floating mb-3">
+                            <input type="number" placeholder="9876543211" class="form-control" name="phoneNumber" aria-describedby="phoneHelp" [(ngModel)]="memberUser.phoneNumber">
+                            <label for="phoneNumber" class="form-label">Phone Number</label>
+                            <div id="phoneHelp" class="form-text">We'll never share your phone Number with anyone else.</div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" placeholder="ExampleName" class="form-control" id="MemberName" name="memberName" [(ngModel)]="memberUser.name">
                             <label for="memberName" class="form-label">Member Name</label>
-                            <input type="text" class="form-control" id="MemberName" name="memberName">
                         </div>
                         <div class="mb-3" style="text-align: center;">
                             <button type="submit" class="btn btn-primary">Send OTP</button>
@@ -32,7 +37,7 @@
                         </div>
                         <div class="col-7">
                             <input type="text" class="form-control" id="enteringOtp" >
-                            <div id="emailHelp" class="form-text">Please enter 6 digit OTP sent to your email/phone</div>
+                            <div id="emailHelp" class="form-text">Please enter 6 digit OTP sent to your Email</div>
                         </div>
                         <div class="col-3">
                             <button type="submit" class="btn btn-primary">Verify OTP</button>

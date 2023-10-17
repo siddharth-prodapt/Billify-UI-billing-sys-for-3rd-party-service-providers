@@ -15,6 +15,8 @@ import { ViewMembersComponent } from './Customer/components/dashboard/view-membe
 import { AllPlansComponent } from './Customer/components/dashboard/all-plans/all-plans.component';
 import { ProfileComponent } from './Customer/components/dashboard/profile/profile.component';
 import { LoginGuard } from './config/guards/login.guard';
+import { RoleGuard } from './config/guards/role.guard';
+import { AdminDashboardComponent } from './Admin/components/admin-dashboard/admin-dashboard.component';
 
 const routes: Routes = [
   {
@@ -86,9 +88,15 @@ const routes: Routes = [
     component: ContactUsComponent
   },
   {
+    path: 'admin',
+    canActivate:[RoleGuard,LoginGuard],
+    component: AdminDashboardComponent
+  },
+  {
     path: '**',
     component: PageNotFoundComponent,
-  }];
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

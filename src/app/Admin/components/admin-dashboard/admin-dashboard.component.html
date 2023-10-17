@@ -1,0 +1,39 @@
+<app-nav-auth></app-nav-auth>
+<p>admin-dashboard works!</p>
+<h1>Welcome to Dashboard Mr.Admin</h1>
+<div class="container row">
+    <div class="col-xs-1 col-md-1 text-center border rounded mx-1 d-none mx-auto" id="sideMenuCollapsed">
+        <div class="list-group">
+            <div class="navbar mx-auto">
+                <button class="btn" type="button" (click)="openNav()" id="navToggler">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <button routerLink="allPlans" type="button" class="list-group-item list-group-item-action">View</button>
+            <button routerLink="myPlans" type="button" class="list-group-item list-group-item-action" aria-current="true"><i class="bi bi-bookmarks-fill"></i></button>
+            <button routerLink="addMember" type="button" class="list-group-item list-group-item-action"><i class="bi bi-person-add"></i></button>
+            
+            <button routerLink="myBills" type="button" class="list-group-item list-group-item-action"><i class="bi bi-receipt-cutoff"></i></button>
+            <button routerLink="myProfile" type="button" class="list-group-item list-group-item-action"><i class="bi bi-person-circle"></i></button>
+        </div>
+    </div>
+    <div class="col-xs-3 col-md-3 text-center border rounded" id="sideMenu">
+        <div class="list-group">
+            <div class="navbar px-3">
+                <h3 class="mb-0">Menu</h3>
+                <button class="btn" type="button"  (click)="closeNav()" id="navToggler">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <button routerLink="allPlans" type="button" class="list-group-item list-group-item-action">View Users</button>
+            <button routerLink="myPlans" type="button" class="list-group-item list-group-item-action">Generate Invoice</button>
+            <button routerLink="addMember" type="button" class="list-group-item list-group-item-action">Stats</button>
+            
+            <button routerLink="myBills" type="button" class="list-group-item list-group-item-action">My Bills</button>
+            <button routerLink="myProfile" type="button" class="list-group-item list-group-item-action">My Profile</button>
+        </div>
+    </div>
+    <div class="col-xs-9 col-md-9 border rounded" id="content">
+        <router-outlet></router-outlet>
+    </div>
+</div>

@@ -25,6 +25,7 @@ import { ProfileComponent } from './Customer/components/dashboard/profile/profil
 import { NameValidatorDirective } from './Customer/validators/name-validator.directive';
 import { CnfpassValidatorDirective } from './Customer/validators/cnfpass-validator.directive';
 import { ModalComponent } from './Customer/SharedComponents/modal/modal.component';
+import { AdminDashboardComponent } from './Admin/components/admin-dashboard/admin-dashboard.component';
 
 
 
@@ -51,6 +52,7 @@ import { ModalComponent } from './Customer/SharedComponents/modal/modal.componen
     NameValidatorDirective,
     CnfpassValidatorDirective,
     ModalComponent,
+    AdminDashboardComponent,
   ],
   imports: [
     BrowserModule,

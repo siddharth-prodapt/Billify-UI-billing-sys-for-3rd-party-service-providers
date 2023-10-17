@@ -17,7 +17,7 @@ export class LoginComponent {
   succmessage:string=""
   errmessage:string=""
   username:string='';
-  loginResponse:LoginResponse = new LoginResponse("","","","","")
+  loginResponse:LoginResponse = new LoginResponse("","","","","","")
   user:Login=new Login("","");
   constructor(private a1:AuthService,private router:Router){}
 
@@ -33,20 +33,31 @@ export class LoginComponent {
           this.loginResponse = response.body as LoginResponse
           localStorage.setItem('token',this.loginResponse.token)
           localStorage.setItem('loggedIn','true')
+          localStorage.setItem('name',this.loginResponse.name)
           localStorage.setItem('uuid',this.loginResponse.uuid as string)
-          // localStorage.setItem('')
           console.log(localStorage.getItem('token'))
           this.spinner=false
-          this.router.navigate(["/dashboard/"+this.loginResponse.name])
+          if(this.loginResponse.role === 'ROLE_USER'){
+            this.router.navigate(["/dashboard/"+this.loginResponse.name])
+          }else if(this.loginResponse.role === 'ROLE_ADMIN'){
+            localStorage.setItem('admin','true')
+            this.router.navigate(["/admin/"])
+          }
         }
-        else if(response.status===201){
+        else if(response.status===403){
           this.errmessage="Incorrect EmailId & Password"
           this.spinner=false
         }
       },
       (error)=>{
-        this.errmessage="Error in Connection."
-        this.spinner=false
+        if(error.status===403){
+          this.errmessage="Incorrect EmailId & Password"
+          this.spinner=false
+        }
+        else{
+          this.errmessage="Error in Connection."
+          this.spinner=false
+        }
       }
     )
   }

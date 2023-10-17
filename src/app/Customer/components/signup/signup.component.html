@@ -1,7 +1,7 @@
-<app-nav-un-auth></app-nav-un-auth>
+<app-nav-auth></app-nav-auth>
 <div class="row mt-5">
-    <div class="col-5 mx-auto border rounded shadow">
-        <form #signUpForm="ngForm" autocomplete="off">
+    <div class="col-md-5 mx-auto border rounded shadow">
+        <form #signUpForm="ngForm" (ngSubmit)="signUp()" autocomplete="off">
             <div class="row mb-3">
                 <div class="col-auto mt-2 mx-auto">
                     <div class="display-6">Sign-Up</div>
@@ -9,16 +9,16 @@
             </div>
             <hr>
             <!-- Name field -->
-            <div class="mb-3">
-                <label for="Name" class="form-label">Full Name<small class="required">*</small></label>
+            <div class="form-floating mb-3">
                 <input #name="ngModel"
                     appNameValidator
                     type="text"
+                    placeholder=""
                     class="form-control"
                     name="name"
                     [(ngModel)]="user.name"
                     required>
-                <div></div>
+                <label for="Name" class="form-label">Full Name<small class="text-danger">*</small></label>
                 <div *ngIf="name.dirty && name.errors?.['required']">
                     <small class="text-danger">Full Name is required field</small>
                 </div>
@@ -27,14 +27,15 @@
                 </div>
             </div>
             <!-- Email field -->
-            <div class="mb-3">
-                <label for="Email" class="form-label">Email<small class="required">*</small></label>
+            <div class="form-floating mb-3">
                 <input #email="ngModel"
                     pattern="\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b"
                     type="email"
+                    placeholder="email@example.com"
                     class="form-control"
                     name="email"
                     [(ngModel)]="user.email" required>
+                <label for="Email" class="form-label">Email<small class="text-danger">*</small></label>
                 <div *ngIf="email.dirty && email.errors?.['required']">
                     <small class="text-danger">Email is a required field</small>
                 </div>
@@ -89,7 +90,7 @@
                     type="password"
                     class="form-control"
                     name="confirmPassword"
-                    [(ngModel)]="user.confirmPassword" required>
+                    [ngModel]="user.confirmPassword" required>
                 <div *ngIf="cnfPassword.dirty && cnfPassword.errors?.['required']">
                     <small class="text-danger">Password is a required field</small>
                 </div>
