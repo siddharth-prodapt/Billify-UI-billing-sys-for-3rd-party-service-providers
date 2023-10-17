@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Plans } from 'src/app/Customer/services/plan-service/Plans.Model';
 import { PlanDetailsService } from 'src/app/Customer/services/plan-service/plan-details.service';
 
 @Component({
@@ -17,22 +18,5 @@ export class AllPlansComponent {
     this.allPlans=data 
     console.log("This. all plans",this.allPlans);
   });
-  }
-}
-export class Plans{
-    id!: number;
-    name!: string;
-    planFor!: string;
-    price!: string;
-    maxPersons!: number;
-    createdAt!: string;
-    modifiedAt!: string;
-    validity!: string;
-    durationType!: string;
-    planType!: string;
-    available!: boolean;
-
-  constructor(){
-
   }
 }

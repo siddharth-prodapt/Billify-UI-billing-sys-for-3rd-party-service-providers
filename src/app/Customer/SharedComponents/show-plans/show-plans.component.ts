@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Plans } from '../../components/dashboard/all-plans/all-plans.component';
+import { Plans } from '../../services/plan-service/Plans.Model';
+import { SubscribePlan } from '../../services/plan-service/SubscribePlan.Model';
+import { SubscribePlanService } from '../../services/plan-service/subscribe-plan.service';
+
 
 @Component({
   selector: 'app-show-plans',
@@ -8,8 +11,37 @@ import { Plans } from '../../components/dashboard/all-plans/all-plans.component'
 })
 export class ShowPlansComponent implements OnInit{
   @Input() plan:Plans|undefined
+  @Input() myPlan:boolean=false
+
+
+  subscribePlan:SubscribePlan=new SubscribePlan()
+  planId:string|undefined
+  pid:string|undefined
+
+  subscribeBtn!:boolean
+
+  constructor(private s1:SubscribePlanService){ }
 
   ngOnInit(): void {
-    console.log('on init')
+    if(this.myPlan){
+      this.subscribeBtn = false
+    }
+    else{
+      // console.log('on init')
+      this.subscribeBtn = true
+      this.planId='#myPlans'+this.plan?.id
+      this.pid='myPlans'+this.plan?.id
+      // console.log(this.planId,this.pid)
+    }
+  }
+  subscribe(id:string|undefined){
+    // console.log(id)
+    // console.log(localStorage.getItem('uuid'))
+    this.subscribePlan.id=localStorage.getItem('uuid') as string
+    this.subscribePlan.subscribedPlanId=id as string
+    this.s1.subscribePlan(this.subscribePlan).subscribe((data)=>{
+      console.log(data)
+    }
+    )
   }
 }

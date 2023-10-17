@@ -56,6 +56,10 @@
                     <label for="DateOfBirth" class="form-label">Date of Birth<small class="required">*</small></label>
                     <input type="date" [ngModel]="p.dob|date:'yyyy-MM-dd'" class="form-control" name="dob" id="DateOfBirth" [readOnly]="editAble">
                 </div>
+                <div class="mb-3">
+                    <label for="PhoneNumber" class="form-label">Phone Number<small class="text-danger">*</small></label>
+                    <input type="number" [ngModel]="p.phoneNumber" class="form-control" name="phoneNumber" id="PhoneNumber" [readOnly]="editAble">
+                </div>
                 <div class="row">
                     <label for="Address" class="form-label">Address<small class="required">*</small></label>
                 </div>

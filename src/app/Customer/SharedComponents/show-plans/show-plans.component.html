@@ -1,15 +1,38 @@
-<div class="card">
+<div *ngIf="plan?.planType=='MOBILE'">
+  <div class="card">
     <!-- <img src="..." class="card-img-top" alt="..."> -->
     <div class="card-body">
       <h5 class="card-title">{{plan?.name}}</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">Number of Persons: {{plan?.maxPersons}}</li>
       <li class="list-group-item">Pricing: Rs.{{plan?.price}}/month</li>
+      
+      <!-- <li>{{plan?.uuid}}</li> -->
     </ul>
-    <div class="card-body">
-      <a href="#" class="card-link">More Details</a>
-      <a href="#" class="card-link">Subscribe Plan</a>
+    <div *ngIf="subscribeBtn" class="card-body py-2 row">
+      <button class="btn btn-primary mx-auto" data-bs-toggle="modal" [attr.data-bs-target]="planId">Subscribe</button>
     </div>
+    <div *ngIf="!subscribeBtn" class="card-body py-2 row">
+      <button class="btn btn-success mx-auto" [disabled]="!subscribeBtn">Subscribed</button>
+    </div>
+</div> 
+</div>
+
+<div *ngIf="subscribeBtn" class="modal fade" id="{{pid}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="lead">Do You Really Want to subscribe to the plan123.{{plan?.uuid}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button (click)="subscribe(plan?.uuid)" type="button" class="btn btn-primary" data-bs-dismiss="modal">Yes</button>
+      </div>
+    </div>
+  </div>
 </div>

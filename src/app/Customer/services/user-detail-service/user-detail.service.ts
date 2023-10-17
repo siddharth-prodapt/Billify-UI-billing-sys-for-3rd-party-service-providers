@@ -10,7 +10,7 @@ export class UserDetailService {
   user1:user={
     name:"Sai Mohan",
     email:"mohansaip2001@gmail.com",
-    adhaarNumber:779297278124,
+    phoneNumber:7847955970,
     dob:new Date(2001,10,10),
     houseNumber:"LB-307, Badagada Brit Colony",
     city:"Bhubaneswar",

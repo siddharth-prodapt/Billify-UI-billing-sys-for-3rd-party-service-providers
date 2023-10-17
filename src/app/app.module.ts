@@ -24,6 +24,7 @@ import { ShowPlansComponent } from './Customer/SharedComponents/show-plans/show-
 import { ProfileComponent } from './Customer/components/dashboard/profile/profile.component';
 import { NameValidatorDirective } from './Customer/validators/name-validator.directive';
 import { CnfpassValidatorDirective } from './Customer/validators/cnfpass-validator.directive';
+import { ModalComponent } from './Customer/SharedComponents/modal/modal.component';
 
 
 
@@ -49,6 +50,7 @@ import { CnfpassValidatorDirective } from './Customer/validators/cnfpass-validat
     ProfileComponent,
     NameValidatorDirective,
     CnfpassValidatorDirective,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,

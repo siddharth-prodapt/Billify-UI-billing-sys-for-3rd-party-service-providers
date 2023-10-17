@@ -1,0 +1,25 @@
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http'
+import { Login } from './login.Model';
+import { CONSTANT } from 'src/app/config/constant/constant';
+import { Observable, Subscribable, Subscriber, Subscription } from 'rxjs';
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthService {
+  constructor(private http:HttpClient) { }
+
+  logInObservable!:Observable<boolean>
+  public post(body:Login){
+    return this.http.post(CONSTANT.BASE_URL+"/login",body,{responseType:"text" as "json"})
+  }
+  public getToken(user:Login){
+    const headers=new HttpHeaders({
+      'Content-Type':'application/json'
+    })
+    console.log(user.email,user.password)
+    return this.http.post(CONSTANT.BASE_URL+"/auth/signin",user,{headers,observe:'response'})
+  }
+}

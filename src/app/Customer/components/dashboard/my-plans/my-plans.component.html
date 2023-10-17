@@ -1,1 +1,13 @@
-<p>my-plans works!</p>
+<div class="mb-0 row">
+    <div class="col mx-auto">
+        <h2>MyPlans</h2>
+    </div>
+    <div class="col mx-auto">
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div *ngFor="let plan of myPlans" class="col-sm-12 col-md-4 mx-auto my-1">
+        <app-show-plans [myPlan]="true" [plan]="plan"></app-show-plans>
+    </div>
+</div>

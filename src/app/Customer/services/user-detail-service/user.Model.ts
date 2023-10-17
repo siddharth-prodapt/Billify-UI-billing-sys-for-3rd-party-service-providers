@@ -1,7 +1,7 @@
 export class user{
     name:string
     email?:string
-    adhaarNumber:number
+    phoneNumber:number
     dob:Date
     houseNumber:string
     city:string
@@ -13,7 +13,7 @@ export class user{
 
     constructor(name:string,
         email:string,
-        adhaarNumber:number,
+        phoneNumber:number,
         dob:Date,
         houseNumber:string,
         city:string,
@@ -24,7 +24,7 @@ export class user{
         password:string){
             this.name = name
             this.email = email
-            this.adhaarNumber = adhaarNumber
+            this.phoneNumber = phoneNumber
             this.dob = dob
             this.houseNumber = houseNumber
             this.city = city

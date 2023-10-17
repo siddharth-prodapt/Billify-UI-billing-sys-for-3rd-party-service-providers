@@ -14,6 +14,7 @@ import { ShowBillComponent } from './Customer/components/dashboard/show-bill/sho
 import { ViewMembersComponent } from './Customer/components/dashboard/view-members/view-members.component';
 import { AllPlansComponent } from './Customer/components/dashboard/all-plans/all-plans.component';
 import { ProfileComponent } from './Customer/components/dashboard/profile/profile.component';
+import { LoginGuard } from './config/guards/login.guard';
 
 const routes: Routes = [
   {
@@ -35,6 +36,7 @@ const routes: Routes = [
   {
     path: 'dashboard/:username',
     component: DashboardComponent,
+    canActivate:[LoginGuard],
     children: [
       {
         path: '',

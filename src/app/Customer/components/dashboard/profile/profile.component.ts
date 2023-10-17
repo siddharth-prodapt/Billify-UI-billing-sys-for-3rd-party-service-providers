@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Profile } from 'src/app/Customer/services/update-user-details/Profile.Model';
+import { UpdateUserDetailsService } from 'src/app/Customer/services/update-user-details/update-user-details.service';
 import { UserDetailService } from 'src/app/Customer/services/user-detail-service/user-detail.service';
 import { user } from 'src/app/Customer/services/user-detail-service/user.Model';
 
@@ -11,9 +13,10 @@ import { user } from 'src/app/Customer/services/user-detail-service/user.Model';
 export class ProfileComponent {
   p!:user
   // p1:user=new user("","",0,,"","","","",0,"","")
+  updateProfile:Profile = new Profile()
   editAble:boolean=true
 
-  constructor(private userDetailService:UserDetailService){ }
+  constructor(private userDetailService:UserDetailService,private updateUserDetails:UpdateUserDetailsService){ }
 
   ngOnInit(){
     this.userDetailService.userObservable.subscribe((data)=>{
@@ -35,15 +38,17 @@ export class ProfileComponent {
     profileForm.resetForm(this.p)
   }
   saveChanges(profileForm:NgForm){
-    profileForm.value.dob = new Date(profileForm.value.dob).toISOString()
-    console.log(profileForm.value.dob)
+    this.updateProfile.email=profileForm.value.email
+    this.updateProfile.phoneNo=profileForm.value.phoneNumber
+    this.updateProfile.dateOfBirth=profileForm.value.dob
+    this.updateProfile.pincode=profileForm.value.pincode
+    this.updateProfile.city=profileForm.value.city
+    this.updateProfile.state=profileForm.value.state
+    this.updateProfile.country=profileForm.value.country
+    console.log(this.updateProfile)
+    this.updateUserDetails.updateProfile(this.updateProfile).subscribe((data)=>{
+      console.log(data)
+    })
     this.editAble=true
-  }
-}
-
-class profile{
-  name:string|undefined
-  constructor(name:string){
-    this.name = name
   }
 }

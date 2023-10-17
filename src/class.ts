@@ -1,12 +1,3 @@
-export class login{
-    name:string|undefined
-    password:string|undefined
-
-    constructor(name:string,password:string){
-        this.name = name
-        this.password = password
-    }
-}
 export class signup{
     name:string|undefined
     email:string|undefined

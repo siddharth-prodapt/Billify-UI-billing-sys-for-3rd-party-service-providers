@@ -5,6 +5,7 @@ import { ViewMembersComponent } from './view-members/view-members.component';
 import { ViewMembersService } from '../../services/view-members.service';
 import { Observable } from 'rxjs';
 import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
+import { AuthService } from '../../services/auth-service/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,8 +14,7 @@ import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
 })
 export class DashboardComponent{
 
-  constructor(private route: ActivatedRoute,private viewMemberService:ViewMembersService,private router:Router){ }
-
+  constructor(private authService:AuthService,private route: ActivatedRoute,private viewMemberService:ViewMembersService,private router:Router){ }
   myObservable = new Observable((observer)=>{
     observer.next(this.username)
   })
