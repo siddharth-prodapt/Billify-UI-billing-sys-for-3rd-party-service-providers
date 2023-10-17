@@ -1,6 +1,12 @@
 <app-nav-auth></app-nav-auth>
-<div class="row mt-5">
-    <div class="col-md-5 mx-auto border rounded shadow">
+<div *ngIf="toasts && isSignedUp">
+    <app-toast [message]="successMessage"></app-toast>
+</div>
+<div *ngIf="toasts && !isSignedUp">
+    <app-toast [message]="errorMessage"></app-toast>
+</div>
+<div [@bottomUpAnimation] class="row mt-5">
+    <div class="col-md-5 me-auto border rounded shadow">
         <form #signUpForm="ngForm" (ngSubmit)="signUp()" autocomplete="off">
             <div class="row mb-3">
                 <div class="col-auto mt-2 mx-auto">
@@ -98,7 +104,7 @@
                     <small class="text-danger">Confirm Password and Password must be same</small>
                 </div>
             </div>
-            <div class="mb-3" style="text-align: center;">
+            <div class="mt-1 mb-3" style="text-align: center;">
                 <button [disabled]="!signUpForm.valid" type="submit" class="btn btn-primary">Register</button>
             </div>
         </form>

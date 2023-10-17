@@ -17,6 +17,7 @@ import { ProfileComponent } from './Customer/components/dashboard/profile/profil
 import { LoginGuard } from './config/guards/login.guard';
 import { RoleGuard } from './config/guards/role.guard';
 import { AdminDashboardComponent } from './Admin/components/admin-dashboard/admin-dashboard.component';
+import { DefaultComponent } from './Admin/components/admin-dashboard/default/default.component';
 
 const routes: Routes = [
   {
@@ -38,7 +39,7 @@ const routes: Routes = [
   {
     path: 'dashboard/:username',
     component: DashboardComponent,
-    canActivate:[LoginGuard],
+    // canActivate:[LoginGuard],
     children: [
       {
         path: '',
@@ -89,8 +90,14 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    canActivate:[RoleGuard,LoginGuard],
-    component: AdminDashboardComponent
+    // canActivate:[RoleGuard,LoginGuard],
+    component: AdminDashboardComponent,
+    children:[
+      {
+        path:'',
+        component:DefaultComponent
+      }
+    ]
   },
   {
     path: '**',

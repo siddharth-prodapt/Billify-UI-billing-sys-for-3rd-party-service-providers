@@ -1,9 +1,10 @@
-import { Component, OnChanges, SimpleChanges } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
 import { Observable } from 'rxjs';
 import { Member } from '../../services/member-services/Member.Model';
 import { GetMemberService } from '../../services/member-services/get-member.service';
+import { ToastComponent } from '../../SharedComponents/toast/toast.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,14 +12,27 @@ import { GetMemberService } from '../../services/member-services/get-member.serv
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent{
-
-  constructor(private getMemberService:GetMemberService,private route: ActivatedRoute,private router:Router){ }
+  showT:boolean=false
+  constructor(private getMemberService:GetMemberService,private route: ActivatedRoute,private router:Router){
+    // this.router.events.subscribe((event) => {
+    //   if (event instanceof NavigationEnd) {
+    //     console.log(this.router.url,event)
+    //     if(this.router.url === '/dashboard/sai'){
+    //       this.showT=true
+    //     }
+    //     else{
+    //       this.showT=false
+    //     }
+    //   }
+    // });
+  }
   myObservable = new Observable((observer)=>{
     observer.next(this.username)
   })
   
   username:string|null="";
   allMembers:Member[]=[]
+  toastMessage:string="Log-In Successfull!!!"
 
   loadComponent(data:any){
     const memberName = data.target.innerHTML
@@ -40,6 +54,7 @@ export class DashboardComponent{
     document.querySelector("#sideMenu")?.classList.add("d-none")
   }
   ngOnInit(){
+    this.showT=true
     this.username = this.route.snapshot.paramMap.get('username');
     console.log('called dashboard init')
     this.getMemberService.getMemberUser().subscribe(

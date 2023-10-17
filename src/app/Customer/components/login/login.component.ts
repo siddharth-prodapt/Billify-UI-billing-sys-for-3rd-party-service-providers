@@ -14,7 +14,7 @@ import { LoginResponse } from '../../services/auth-service/loginResponse.Model';
 export class LoginComponent {
   inLogin:boolean=true
   spinner:boolean=false
-  succmessage:string=""
+  successMessage:string=""
   errmessage:string=""
   username:string='';
   loginResponse:LoginResponse = new LoginResponse("","","","","","")
@@ -29,7 +29,7 @@ export class LoginComponent {
     this.a1.getToken(this.user).subscribe(
       (response)=>{
         if(response.status===200){
-          this.succmessage="login Successfull"
+          this.successMessage="logIn Successfull!"
           this.loginResponse = response.body as LoginResponse
           localStorage.setItem('token',this.loginResponse.token)
           localStorage.setItem('loggedIn','true')

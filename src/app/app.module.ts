@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms'
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +27,8 @@ import { NameValidatorDirective } from './Customer/validators/name-validator.dir
 import { CnfpassValidatorDirective } from './Customer/validators/cnfpass-validator.directive';
 import { ModalComponent } from './Customer/SharedComponents/modal/modal.component';
 import { AdminDashboardComponent } from './Admin/components/admin-dashboard/admin-dashboard.component';
+import { DefaultComponent } from './Admin/components/admin-dashboard/default/default.component';
+import { ToastComponent } from './Customer/SharedComponents/toast/toast.component';
 
 
 
@@ -53,8 +56,11 @@ import { AdminDashboardComponent } from './Admin/components/admin-dashboard/admi
     CnfpassValidatorDirective,
     ModalComponent,
     AdminDashboardComponent,
+    DefaultComponent,
+    ToastComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
