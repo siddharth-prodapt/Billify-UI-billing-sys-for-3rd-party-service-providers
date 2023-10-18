@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth-service/auth.service';
-import { NgForm } from '@angular/forms';
+import { NgForm, NgModel } from '@angular/forms';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Login } from '../../services/auth-service/login.Model';
 import { Router } from '@angular/router';
@@ -23,30 +23,43 @@ export class ForgotPasswordComponent {
   email:string=""
   otp:string=""
   pass:string=""
-  cnfPass:string=""
+  validateOTPForm:boolean=false
+  changePasswordForm:boolean=false
+  name:string=""
+
   user:Login=new Login("","")
   user2:Forgot = new Forgot()
+
   constructor(private authService:AuthService,private router:Router){ }
 
-  sendOTP(){
-    console.log(this.email)
+  sendOTP(verifyEmail:NgForm){
+    console.log(verifyEmail)
     this.authService.forgetPassword(this.email).subscribe(
       (response)=>{
         if(response.status === 200){
+          this.validateOTPForm = true 
           this.user2 = response.body as Forgot
           console.log(this.user2)
         }
+      },
+      (error)=>{
+        verifyEmail.resetForm()
       }
     )
-    console.log(this.user2)
   }
-  validate(){
-    console.log(this.otp)
+  validateOTP(validateOTPForm:NgForm){
+    // console.log('validate called')
+    // console.log(this.otp)
     if(this.user2.otp === this.otp){
-      console.log(true)
+      this.changePasswordForm = true
+    }
+    else{
+      console.log('Invalid OTP send Again!')
+      this.validateOTPForm=false
+      validateOTPForm.resetForm()
     }
   }
-  changePass(){
+  changePass(changePasswordForm:NgForm){
     console.log(this.pass)
     this.user.email = this.user2.email
     this.user.password = this.pass
@@ -55,11 +68,12 @@ export class ForgotPasswordComponent {
       (response)=>{
         console.log(response)
         setInterval(()=>{
-          this.router.navigate(['/login'])
+          this.router.navigate(['login'])
         },2000)
       },
       (error)=>{
-        console.log(error)
+        this.validateOTPForm=false
+        console.log('Error in Connection.Please try Again')
       }
     )
   }

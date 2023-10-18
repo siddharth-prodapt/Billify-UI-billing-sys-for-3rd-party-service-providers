@@ -14,17 +14,6 @@ import { ToastComponent } from '../../SharedComponents/toast/toast.component';
 export class DashboardComponent{
   showT:boolean=false
   constructor(private getMemberService:GetMemberService,private route: ActivatedRoute,private router:Router){
-    // this.router.events.subscribe((event) => {
-    //   if (event instanceof NavigationEnd) {
-    //     console.log(this.router.url,event)
-    //     if(this.router.url === '/dashboard/sai'){
-    //       this.showT=true
-    //     }
-    //     else{
-    //       this.showT=false
-    //     }
-    //   }
-    // });
   }
   myObservable = new Observable((observer)=>{
     observer.next(this.username)

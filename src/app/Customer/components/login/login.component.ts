@@ -23,6 +23,7 @@ import { trigger, style, animate, transition } from '@angular/animations';
 export class LoginComponent {
   inLogin:boolean=true
   spinner:boolean=false
+  showToast:boolean=false
   successMessage:string=""
   errmessage:string=""
   username:string='';
@@ -46,16 +47,13 @@ export class LoginComponent {
           localStorage.setItem('uuid',this.loginResponse.uuid as string)
           console.log(localStorage.getItem('token'))
           this.spinner=false
+          this.showToast=true
           if(this.loginResponse.role === 'ROLE_USER'){
             this.router.navigate(["/dashboard/"+this.loginResponse.name])
           }else if(this.loginResponse.role === 'ROLE_ADMIN'){
             localStorage.setItem('admin','true')
             this.router.navigate(["/admin/"])
           }
-        }
-        else if(response.status===403){
-          this.errmessage="Incorrect EmailId & Password"
-          this.spinner=false
         }
       },
       (error)=>{
