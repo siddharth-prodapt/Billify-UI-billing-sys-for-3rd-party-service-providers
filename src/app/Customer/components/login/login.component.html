@@ -38,10 +38,12 @@
             <div class="mb-2" style="text-align: end;">
                 <a id="forgotPassword" class="hover-underline-animation" routerLink="/forgotPassword" style="color: var(--secondary);">Forgot Password?</a>
             </div>
-            <div class="text-center" *ngIf="successMessage">
+            <div class="text-center" *ngIf="showSuccessToast">
+                <app-toast [message]="message"></app-toast>
                 <small class="text-success">{{successMessage}}</small>
             </div>
-            <div class="text-center" *ngIf="errmessage">
+            <div class="text-center" *ngIf="showErrorToast">
+                <app-toast [message]="message"></app-toast>
                 <small class="text-danger">{{errmessage}}</small>
             </div>
             <!-- {{email.invalid}}
@@ -58,7 +60,7 @@
             </div>
         </form>
     </div>
-    <div class="col-md-8 col-sm-4 text-center border">
+    <div class="col-md-8 col-sm-4 text-center">
         <img src="../../../../assets/images/login-bg.svg" alt="" width="90%" height="450px">
     </div>
 </div>

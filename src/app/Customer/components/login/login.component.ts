@@ -23,7 +23,9 @@ import { trigger, style, animate, transition } from '@angular/animations';
 export class LoginComponent {
   inLogin:boolean=true
   spinner:boolean=false
-  showToast:boolean=false
+  showSuccessToast:boolean=false
+  showErrorToast:boolean=false
+  message!:string
   successMessage:string=""
   errmessage:string=""
   username:string='';
@@ -47,7 +49,9 @@ export class LoginComponent {
           localStorage.setItem('uuid',this.loginResponse.uuid as string)
           console.log(localStorage.getItem('token'))
           this.spinner=false
-          this.showToast=true
+          this.showSuccessToast=true
+          this.message="Login Successfull 🎉"
+          this.showSuccessToast=false
           if(this.loginResponse.role === 'ROLE_USER'){
             this.router.navigate(["/dashboard/"+this.loginResponse.name])
           }else if(this.loginResponse.role === 'ROLE_ADMIN'){
@@ -60,10 +64,14 @@ export class LoginComponent {
         if(error.status===403){
           this.errmessage="Incorrect EmailId & Password"
           this.spinner=false
+          this.showErrorToast=true
+          this.message=this.errmessage
         }
         else{
           this.errmessage="Error in Connection."
           this.spinner=false
+          this.showErrorToast=true
+          this.message=this.errmessage
         }
       }
     )
