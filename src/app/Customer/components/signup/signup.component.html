@@ -5,17 +5,20 @@
 <div *ngIf="toasts && !isSignedUp">
     <app-toast [message]="errorMessage"></app-toast>
 </div>
-<div [@bottomUpAnimation] class="row mt-5">
-    <div class="col-md-5 me-auto border rounded shadow">
+<div class="row mt-2 align-items-center" id="background">
+    <div class="col-md-5 mx-auto">
+        <img src="../../../../assets/images/signup-bg.svg" alt="" width="100%" height="450px">
+    </div>
+    <div [@leftRightAnimation] class="col-md-5 mx-auto border shadow" style="border-radius: 10px;">
         <form #signUpForm="ngForm" (ngSubmit)="signUp()" autocomplete="off">
-            <div class="row mb-3">
+            <div class="row mb-2">
                 <div class="col-auto mt-2 mx-auto">
-                    <div class="display-6">Sign-Up</div>
+                    <div class="display-6" style="color: var(--secondary);">Sign-Up</div>
                 </div>
             </div>
             <hr>
             <!-- Name field -->
-            <div class="form-floating mb-3">
+            <div class="form-floating mb-2">
                 <input #name="ngModel"
                     appNameValidator
                     type="text"
@@ -33,7 +36,7 @@
                 </div>
             </div>
             <!-- Email field -->
-            <div class="form-floating mb-3">
+            <div class="form-floating mb-2">
                 <input #email="ngModel"
                     pattern="\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b"
                     type="email"
@@ -105,7 +108,7 @@
                 </div>
             </div>
             <div class="mt-1 mb-3" style="text-align: center;">
-                <button [disabled]="!signUpForm.valid" type="submit" class="btn btn-primary">Register</button>
+                <button [disabled]="!signUpForm.valid" type="submit" class="btn my-btn-primary">Register</button>
             </div>
         </form>
     </div>

@@ -18,6 +18,7 @@ import { LoginGuard } from './config/guards/login.guard';
 import { RoleGuard } from './config/guards/role.guard';
 import { AdminDashboardComponent } from './Admin/components/admin-dashboard/admin-dashboard.component';
 import { DefaultComponent } from './Admin/components/admin-dashboard/default/default.component';
+import { ForgotPasswordComponent } from './Customer/components/forgot-password/forgot-password.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'forgotPassword',
+    component: ForgotPasswordComponent
   },
   {
     path: 'dashboard/:username',

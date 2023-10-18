@@ -12,10 +12,10 @@ declare var bootstrap: any;
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css'],
   animations: [
-    trigger('bottomUpAnimation', [
+    trigger('leftRightAnimation', [
       transition(':enter', [
-        style({ transform: 'translateY(200%)' }),
-        animate('0.5s ease', style({ transform: 'translateY(0%)' })),
+        style({ transform: 'translateX(-60%)' }),
+        animate('0.5s ease', style({ transform: 'translateX(0%)' })),
       ]),
     ]),
   ]

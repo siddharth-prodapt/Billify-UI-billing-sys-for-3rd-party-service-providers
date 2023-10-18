@@ -37,7 +37,7 @@ export class DashboardComponent{
   loadComponent(data:any){
     const memberName = data.target.innerHTML
     // this.router.navigate(['/dashboard/'+this.username+'/viewMember/'+memberName])
-    this.router.navigateByUrl('/dashboard/sai',{skipLocationChange:true}).then(()=>{
+    this.router.navigateByUrl('/',{skipLocationChange:true}).then(()=>{
       this.router.navigate(['/dashboard/'+this.username+'/viewMember/'+memberName])
     })
   }

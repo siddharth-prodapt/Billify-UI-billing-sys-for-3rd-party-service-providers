@@ -4,12 +4,21 @@ import { NgForm } from '@angular/forms';
 import { Login } from '../../services/auth-service/login.Model';
 import { Router, RouterLink } from '@angular/router';
 import { LoginResponse } from '../../services/auth-service/loginResponse.Model';
+import { trigger, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers:[AuthService]
+  animations: [
+    trigger('rightLeftAnimation', [
+      transition(':enter', [
+        style({ transform: 'translateX(100%)' }),
+        animate('0.5s ease', style({ transform: 'translateX(0%)' })),
+      ]),
+    ]),
+  ],
+  providers:[AuthService],
 })
 export class LoginComponent {
   inLogin:boolean=true

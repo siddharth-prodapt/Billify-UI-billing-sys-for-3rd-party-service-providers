@@ -29,6 +29,7 @@ import { ModalComponent } from './Customer/SharedComponents/modal/modal.componen
 import { AdminDashboardComponent } from './Admin/components/admin-dashboard/admin-dashboard.component';
 import { DefaultComponent } from './Admin/components/admin-dashboard/default/default.component';
 import { ToastComponent } from './Customer/SharedComponents/toast/toast.component';
+import { ForgotPasswordComponent } from './Customer/components/forgot-password/forgot-password.component';
 
 
 
@@ -58,6 +59,7 @@ import { ToastComponent } from './Customer/SharedComponents/toast/toast.componen
     AdminDashboardComponent,
     DefaultComponent,
     ToastComponent,
+    ForgotPasswordComponent,
   ],
   imports: [
     BrowserAnimationsModule,

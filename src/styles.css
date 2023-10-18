@@ -1,10 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
 :root{
+    --primary-subtle:#f87f5a;
     --primary:#F77754;
+    --secondary:#584B42;
+    --tertiary:#537D91;
+    --quaternary:#A4D1C8;
+    --quaternary-subtle:#f3fdfc;
 }
-:root .btn-primary{
-    color: var(--primary);
+:root .my-btn-tertiary-outline{
+    color:var(--tertiary);
+    border-color: var(--tertiary)
 }
+:root .my-btn-tertiary-outline:hover{
+    color: white;
+    background-color: var(--tertiary)
+}
+:root .my-btn-primary-outline{
+    color:var(--primary);
+    border-color: var(--primary)
+}
+:root .my-btn-primary-outline:hover{
+    color: white;
+    background-color: var(--primary)
+}
+:root .my-btn-primary{
+    color: white;
+    background-color:  var(--primary);
+    border-color:var(--primary)
+}
+:root .my-btn-primary:disabled{
+    color: white;
+    background-color:  var(--primary);
+    border-color:var(--primary)
+}
+:root .my-btn-primary:hover{
+    color: white;
+    /* background-color:  var(--primary); */
+    border-color:var(--primary);
+    background-color: var(--primary-subtle)
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 a{
     text-decoration: none !important;
 }
@@ -12,4 +47,5 @@ a{
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }

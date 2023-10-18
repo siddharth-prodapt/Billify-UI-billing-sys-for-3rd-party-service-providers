@@ -6,6 +6,7 @@ import { Observable, Subscribable, Subscriber, Subscription } from 'rxjs';
 import { SignUp } from './SignUp.Model';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -29,5 +30,18 @@ export class AuthService {
     })
     console.log(user.email,user.password,user.password,user.userType)
     return this.http.post(CONSTANT.BASE_URL+"/auth/signup",user,{headers,observe:'response'})
+  }
+  public forgetPassword(email:string){
+    const headers=new HttpHeaders({
+      'Content-Type':'application/json'
+    })
+    console.log(email)
+    return this.http.post(CONSTANT.BASE_URL+"/auth/forgot-password/"+email,email,{headers,observe:'response'})
+  }
+  public changePassword(user:Login){
+    const headers=new HttpHeaders({
+      'Content-Type':'application/json'
+    })
+    return this.http.post(CONSTANT.BASE_URL+"/auth/change-password",user,{headers,observe:'response'})
   }
 }
