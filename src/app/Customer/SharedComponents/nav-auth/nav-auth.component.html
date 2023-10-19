@@ -20,10 +20,10 @@
                     <a routerLink="/contactUs" class="nav-link" style="color: var(--secondary);">Contact</a>
                 </li>
                 <li *ngIf="logout" class="nav-item">
-                    <a type="button" (click)="navigate()" class="nav-link">Dashboard</a>
+                    <a type="button" (click)="navigate()" class="nav-link" style="color: var(--secondary);">Dashboard</a>
                 </li>
             </ul>
-            <button *ngIf="logout" (click)="logOut()" class="me-2 btn my-btn-tertiary-outline" type="submit">LogOut</button>
+            <button *ngIf="logout" (click)="logOut()" class="me-2 btn my-btn-primary-outline" type="submit">LogOut</button>
             <button *ngIf="!logout" routerLink="/login" class="me-2 btn my-btn-primary-outline" style="width: 80px;" type="submit">LogIn</button>
             <button *ngIf="!logout" routerLink="/signup" class="me-2 btn my-btn-primary" style="width: 80px;" type="submit">SignUp</button>
         </div>

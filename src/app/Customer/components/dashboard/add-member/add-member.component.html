@@ -13,19 +13,19 @@
                         <div class="form-floating mb-3">
                             <input type="text" placeholder="name@example.com" class="form-control" name="email" aria-describedby="emailHelp">
                             <label for="email" class="form-label">Email address</label>
-                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                            <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                         </div>
                         <div class="form-floating mb-3">
                             <input type="number" placeholder="9876543211" class="form-control" name="phoneNumber" aria-describedby="phoneHelp" [(ngModel)]="memberUser.phoneNumber">
                             <label for="phoneNumber" class="form-label">Phone Number</label>
-                            <div id="phoneHelp" class="form-text">We'll never share your phone Number with anyone else.</div>
+                            <!-- <div id="phoneHelp" class="form-text">We'll never share your phone Number with anyone else.</div> -->
                         </div>
                         <div class="form-floating mb-3">
                             <input type="text" placeholder="ExampleName" class="form-control" id="MemberName" name="memberName" [(ngModel)]="memberUser.name">
                             <label for="memberName" class="form-label">Member Name</label>
                         </div>
                         <div class="mb-3" style="text-align: center;">
-                            <button type="submit" class="btn btn-primary">Send OTP</button>
+                            <button type="submit" class="btn my-btn-primary">Send OTP</button>
                         </div>
                     </form>
                     <hr>
@@ -40,7 +40,7 @@
                             <div id="emailHelp" class="form-text">Please enter 6 digit OTP sent to your Email</div>
                         </div>
                         <div class="col-3">
-                            <button type="submit" class="btn btn-primary">Verify OTP</button>
+                            <button type="submit" class="btn my-btn-primary">Verify OTP</button>
                         </div>
                         
                     </div>

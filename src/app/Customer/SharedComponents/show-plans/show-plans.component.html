@@ -1,6 +1,37 @@
 <div *ngIf="plan?.planType=='MOBILE'">
-  <div class="card">
-    <!-- <img src="..." class="card-img-top" alt="...">// -->
+  <div class="card shadow mx-auto" style="width: 300px;height: 380px;" id="card-hover">
+    <img src="./../../../../assets/images/netflix.jpg" class="card-img-top" alt="netflix-img" height="" width="">
+    <div class="card-body">
+      <h5 class="card-title" style="font-size: 30px;font-weight: 700; margin-bottom: 5px;">{{plan?.name}}</h5>
+      <div class="row">
+        <div class="col-md-6">
+            <p style="font-size: 15px; margin-bottom: 0px;">Unlimited</p>
+            <p style="font-size: 13px; margin-bottom: 0px;">Internet</p>
+        </div>
+        <div class="col-md-6">
+            <p style="font-size: 15px; margin-bottom: 0px;">Upto 40 mbps</p>
+            <p style="font-size: 13px; margin-bottom: 0px;">Internet</p>
+        </div>
+    </div>
+    <div class="row">
+        <p style="font-size: 13px; margin-bottom: 0px;margin-top: 12px;">Includes Airtel Thanks Benifit</p>
+    </div>
+    <div class="card-body row align-items-center">
+        <div class="col-md-6">
+            <p style="font-size: 12px;margin-bottom: 0px;">Monthly Rental</p>
+            <h3 style="font-size: 23px;margin-bottom: 0px;">Rs.{{plan?.price}}</h3>
+        </div>
+        <div *ngIf="subscribeBtn" class="col-md-6">
+          <button class="btn my-btn-primary-outline" style="font-size: 15px;">Buy Now</button>
+        </div>
+        <div *ngIf="!subscribeBtn" class="col-md-6">
+          <button class="btn my-btn-primary-outline" style="font-size: 15px;">Subscribed</button>
+        </div>
+    </div>
+    </div>
+  </div>
+  <!-- <div class="card">
+    <img src="..." class="card-img-top" alt="...">//
     <div class="card-body">
       <h5 class="card-title">{{plan?.name}}</h5>
     </div>
@@ -8,7 +39,7 @@
       <li class="list-group-item">Number of Persons: {{plan?.maxPersons}}</li>
       <li class="list-group-item">Pricing: Rs.{{plan?.price}}/month</li>
       
-      <!-- <li>{{plan?.uuid}}</li>// -->
+      <li>{{plan?.uuid}}</li>//
     </ul>
     <div *ngIf="subscribeBtn" class="card-body py-2 row">
       <button class="btn btn-primary mx-auto" data-bs-toggle="modal" [attr.data-bs-target]="planId">Subscribe</button>
@@ -16,7 +47,7 @@
     <div *ngIf="!subscribeBtn" class="card-body py-2 row">
       <button class="btn btn-success mx-auto" [disabled]="!subscribeBtn">Subscribed</button>
     </div>
-  </div> 
+  </div>  -->
 </div>
 
 <div *ngIf="subscribeBtn" class="modal fade" id="{{pid}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

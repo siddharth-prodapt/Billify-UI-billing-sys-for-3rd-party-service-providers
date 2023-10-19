@@ -1,37 +1,51 @@
 <div class="row">
-    <!-- <router-outlet></router-outlet> -->
-    <div class="row mt-2 mx-auto">
-        <div class="col-3">
-            <h3>All Bills</h3>
-        </div>
-        <div class="col-3 ms-auto">
-            <h3>Filters</h3>
-        </div>
-    </div>
-    <div class="mx-auto row">
-        <table class="table text-center table-hover">
-            <thead>
-              <tr> 
-                <th scope="col">#</th>
-                <th scope="col">Bid</th>
-                <th scope="col">date_generated</th>
-                <th scope="col">due_date</th>
-                <th scope="col">status</th>
-                <th scope="col">price</th>
-                <th scope="col">paid_on</th>
-              </tr>
-            </thead>
-            <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td><a routerLink="/dashboard/{{username}}/showBills/{{ind}}">104</a></td>
-                  <td>21/10/2023</td>
-                  <td>31/10/2023</td>
-                  <td>pending</td>
-                  <td>Rs 470.01</td>
-                  <td>-</td>
-                </tr>
-            </tbody>
-          </table>
-    </div>
+  <!-- <router-outlet></router-outlet> -->
+  <div class="row mt-2 mx-auto">
+      <div class="col-3">
+          <h3>All Bills</h3>
+      </div>
+      <!-- <div class="col-3 ms-auto">
+          <h3>Filters</h3>
+      </div> -->
+  </div>
+  <div class="mx-auto row">
+    <table class="table text-center table-hover">
+      <thead>
+        <tr> 
+          <th scope="col">#</th>
+          <th scope="col">Bid</th>
+          <th scope="col">date_generated</th>
+          <th scope="col">due_date</th>
+          <th scope="col">status</th>
+          <th scope="col">price</th>
+          <th scope="col">paid_on</th>
+        </tr>
+      </thead>
+      <tbody class="text-center" *ngFor="let b of bills;let i=index">
+        <tr>
+          <th scope="row">{{i+1}}</th>
+          <td><a [ariaDisabled]="!b.paymentStatus" routerLink="/dashboard/{{username}}/showBills/{{i}}">#{{b.invoiceUuid.slice(0,5)}}</a></td>
+          <td>21/10/2023</td>
+          <td>31/10/2023</td>
+          <td>
+            <div *ngIf="b.paymentStatus">
+              paid
+            </div>
+            <div *ngIf="!b.paymentStatus">
+              pending
+            </div>
+          </td>
+          <td>Rs.{{b.amount}}</td>
+          <td>
+            <div *ngIf="b.paymentStatus">
+              date
+            </div>
+            <div *ngIf="!b.paymentStatus">
+              -
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

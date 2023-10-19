@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Plans } from '../../services/plan-service/Plans.Model';
 import { SubscribePlan } from '../../services/plan-service/SubscribePlan.Model';
 import { SubscribePlanService } from '../../services/plan-service/subscribe-plan.service';
@@ -12,7 +12,7 @@ import { SubscribePlanService } from '../../services/plan-service/subscribe-plan
 export class ShowPlansComponent implements OnInit{
   @Input() plan:Plans|undefined
   @Input() myPlan:boolean=false
-
+  // @ViewChild('card-hover',{read:ElementRef}) myCard!:ElementRef
 
   subscribePlan:SubscribePlan=new SubscribePlan()
   planId:string|undefined
@@ -20,7 +20,7 @@ export class ShowPlansComponent implements OnInit{
 
   subscribeBtn!:boolean
 
-  constructor(private s1:SubscribePlanService){ }
+  constructor(private s1:SubscribePlanService,private renderer:Renderer2){ }
 
   ngOnInit(): void {
     if(this.myPlan){
