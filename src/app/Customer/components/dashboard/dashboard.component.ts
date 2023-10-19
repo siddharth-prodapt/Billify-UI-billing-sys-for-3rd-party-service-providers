@@ -13,6 +13,7 @@ import { ToastComponent } from '../../SharedComponents/toast/toast.component';
 })
 export class DashboardComponent{
   showT:boolean=false
+  selectedButton!:number
   constructor(private getMemberService:GetMemberService,private route: ActivatedRoute,private router:Router){
   }
   myObservable = new Observable((observer)=>{
@@ -41,6 +42,9 @@ export class DashboardComponent{
     document.querySelector("#sideMenuCollapsed")?.classList.remove("d-none")
     document.querySelector("#content")?.classList.add("col-md-11")
     document.querySelector("#sideMenu")?.classList.add("d-none")
+  }
+  highlightedButton(buttonNumber:number){
+    this.selectedButton=buttonNumber
   }
   ngOnInit(){
     this.showT=true

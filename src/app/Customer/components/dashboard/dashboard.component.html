@@ -4,7 +4,7 @@
     <h1 class="border rounded bg-warning-subtle border-warning-subtle" style="width: fit-content;">&nbsp;Hello {{username}}🖐️</h1>
 </div>
 <!-- {{'loggedIn: '+loggedIn}} -->
-<div class="container row">
+<div class="container row view">
     <div class="col-xs-1 col-md-1 text-center border rounded mx-1 d-none mx-auto" id="sideMenuCollapsed">
         <div class="list-group">
             <div class="navbar mx-auto">
@@ -45,33 +45,35 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
-            <button routerLink="allPlans" type="button" class="list-group-item list-group-item-action">All Plans</button>
-            <button routerLink="myPlans" type="button" class="list-group-item list-group-item-action" aria-current="true">My Plans</button>
-            <button routerLink="addMember" type="button" class="list-group-item list-group-item-action">Add Member</button>
-            
-            <div class="list-group-item">
-                <div class="accordion" id="#accordionExampleTwo">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed p-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                View Members
-                            </button>
-                        </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExampleTwo">
-                            <div class="accordion-body p-2">
-                                
-                                
-                                <div *ngFor="let m of allMembers" class="list-group border-0">
+            <div class="dashboard-navigation-menu ">
+                <button routerLink="allPlans" type="button" class="btn my-btn-primary" (click)="highlightedButton(1)" [class.active]="selectedButton === 1">All Plans</button>
+                <button routerLink="myPlans" type="button" class="list-group-item list-group-item-action" (click)="highlightedButton(2)" [class.active]="selectedButton === 2">My Plans</button>
+                <button routerLink="addMember" type="button" class="list-group-item list-group-item-action" (click)="highlightedButton(3)" [class.active]="selectedButton === 3">Add Member</button>
+                
+                <div class="list-group-item">
+                    <div class="accordion" id="#accordionExampleTwo">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed p-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    View Members
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExampleTwo">
+                                <div class="accordion-body p-2">
                                     
-                                    <button (click)="loadComponent($event)" class="list-group-item list-group-item-action p-1">{{m.name}}</button>
+                                    
+                                    <div *ngFor="let m of allMembers" class="list-group border-0">
+                                        
+                                        <button (click)="loadComponent($event)" class="list-group-item list-group-item-action p-1">{{m.name}}</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <button routerLink="myBills" type="button" class="list-group-item list-group-item-action" (click)="highlightedButton(4)" [class.active]="selectedButton === 4">My Bills</button>
+                <button routerLink="myProfile" type="button" class="list-group-item list-group-item-action" (click)="highlightedButton(5)" [class.active]="selectedButton === 5">My Profile</button>
             </div>
-            <button routerLink="myBills" type="button" class="list-group-item list-group-item-action">My Bills</button>
-            <button routerLink="myProfile" type="button" class="list-group-item list-group-item-action">My Profile</button>
         </div>
     </div>
     <div class="col-xs-9 col-md-9 border rounded" id="content">

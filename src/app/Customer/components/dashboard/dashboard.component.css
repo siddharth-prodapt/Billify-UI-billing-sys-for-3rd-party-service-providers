@@ -1,3 +1,17 @@
 .btn{
     border: none;
 }
+.view {
+    height: 76vh;
+}
+.dashboard-navigation-menu{
+    /* border: 5px solid red; */
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+/* .btn.active { 
+    background-color: black;
+    color: white;
+} */

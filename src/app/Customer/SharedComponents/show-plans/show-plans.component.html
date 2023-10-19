@@ -1,6 +1,6 @@
 <div *ngIf="plan?.planType=='MOBILE'">
   <div class="card">
-    <!-- <img src="..." class="card-img-top" alt="..."> -->
+    <!-- <img src="..." class="card-img-top" alt="...">// -->
     <div class="card-body">
       <h5 class="card-title">{{plan?.name}}</h5>
     </div>
@@ -8,7 +8,7 @@
       <li class="list-group-item">Number of Persons: {{plan?.maxPersons}}</li>
       <li class="list-group-item">Pricing: Rs.{{plan?.price}}/month</li>
       
-      <!-- <li>{{plan?.uuid}}</li> -->
+      <!-- <li>{{plan?.uuid}}</li>// -->
     </ul>
     <div *ngIf="subscribeBtn" class="card-body py-2 row">
       <button class="btn btn-primary mx-auto" data-bs-toggle="modal" [attr.data-bs-target]="planId">Subscribe</button>
@@ -36,3 +36,69 @@
     </div>
   </div>
 </div>
+
+<!-- <div id="card">
+  <div id="img-container">
+      <img id="card-img" src="pexels-freestocksorg-987586.jpg">
+  </div>
+  <div id="card-content">
+      <div id="card-heading">
+          <p id="heading"><b>Unlimited1</b></p>
+          
+          
+          <div id="card-plans">
+
+              <div class="plans-container">
+                  <p class="plans-title">Unlimited</p>
+                  <p class="plans-type">Internet</p>
+              </div>
+              <div class="plans-container">
+                  <p class="plans-title">Upto 40 mbps</p>
+                  <p class="plans-type">Internet</p>
+              </div>
+
+
+          </div>
+      </div>
+
+
+      <div id="add-ons">
+          <p id="title"> Includes Airtel Thanks benefits</p>
+          <div id="icons-container">
+              <div class="icons">
+                  <img class="icons-img" src="x-stream.png">
+                  <p id="img-title">Airtel x-stream</p>
+              </div>
+
+              <div class="icons">
+                  <img class="icons-img" src="x-stream.png">
+                  <p id="img-title">Airtel x-stream</p>
+              </div>
+
+              <div class="icons">
+                  <img class="icons-img" src="x-stream.png">
+                  <p id="img-title">Airtel x-stream</p>
+              </div>
+          </div>
+      </div>
+
+      <div id="card-cta">
+          <div id="price-container">
+              <p id="price-heading">Monthly Rental</p>
+              <p id="price"><b>Rs. 499</b></p>
+          </div>
+          <div id="btn">
+              <p class = "text">BUY NOW</p>
+          </div>
+
+      </div>
+  </div>
+
+  <div id="card-footer">
+      <div>
+          <p class = "card-footer-title1">Xstream DTH box with 1 month HD pack</p>
+          <p class = "card-footer-title2">Watch webseries & TV channels on your TV</p>
+      </div>
+  </div>
+  
+</div> -->
