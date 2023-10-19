@@ -12,6 +12,7 @@ export class MyBillsComponent {
   bills:Invoice[]=[]
   username:any
   names:string[]=[]
+  ind:number=2
   constructor(private d:DashboardComponent,private getInvoiceService:GetInvoiceService){}
   ngOnInit(){
     this.d.myObservable.subscribe((value)=>{

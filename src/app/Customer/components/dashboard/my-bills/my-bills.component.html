@@ -21,43 +21,16 @@
                 <th scope="col">paid_on</th>
               </tr>
             </thead>
-            <tbody *ngFor="let b in bills">
+            <tbody>
                 <tr>
                   <th scope="row">1</th>
-                  <td><a routerLink="/dashboard/{{username}}/showBills/1">104</a></td>
+                  <td><a routerLink="/dashboard/{{username}}/showBills/{{ind}}">104</a></td>
                   <td>21/10/2023</td>
                   <td>31/10/2023</td>
                   <td>pending</td>
                   <td>Rs 470.01</td>
                   <td>-</td>
-                  </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td><a routerLink="/dashboard/{{username}}/showBills/103">103</a></td>
-                <td>21/09/2023</td>
-                <td>30/09/2023</td>
-                <td>paid</td>
-                <td>Rs 470.01</td>
-                <td>22/09/2023</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td><a routerLink="/dashboard/{{username}}/showBills/102">102</a></td>
-                <td>21/08/2023</td>
-                <td>31/08/2023</td>
-                <td>paid</td>
-                <td>Rs 470.01</td>
-                <td>22/08/2023</td>
-              </tr>
-              <tr>
-                <th scope="row">4</th>
-                <td><a routerLink="/dashboard/sai/showBills/101">101</a></td>
-                <td>21/07/2023</td>
-                <td>30/07/2023</td>
-                <td>paid</td>
-                <td>Rs 470.01</td>
-                <td>22/07/2023</td>
-              </tr>
+                </tr>
             </tbody>
           </table>
     </div>
