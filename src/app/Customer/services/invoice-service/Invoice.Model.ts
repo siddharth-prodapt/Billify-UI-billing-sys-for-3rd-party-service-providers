@@ -7,6 +7,8 @@ export class Invoice{
     amount: number=0
     noOfPlans!: number
     paymentStatus!: boolean
+    dueDate!:string
+    paymentDate!:string
     subscribedPlans!: Subscriptions 
 
     constructor() {}

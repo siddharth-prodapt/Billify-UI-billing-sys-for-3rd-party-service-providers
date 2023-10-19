@@ -7,7 +7,7 @@
 <div class="container border rounded" id="full">
     <div class="row align-items-center" id="header">
         <div class="col-md-5 mt-2 text-center mx-auto">
-            <h3>Invoice #{{invoice.invoiceUuid.slice(0,5)}}</h3>
+            <h3>Invoice #{{invoice.invoiceUuid}}</h3>
         </div>
     </div>
     <hr>
@@ -58,7 +58,7 @@
                 <h5>Total:</h5>
             </div>
             <div class="col-2 ps-4">
-                <h5>Rs.{{invoice.amount+50.50|number:'1.2-2'}}</h5>
+                <!-- <h5>Rs.{{invoice.amount+50.50|number:'1.2-2'}}</h5> -->
             </div>
         </div>
     </div>
@@ -74,7 +74,26 @@
     </div>
     <div class="row mt-5 mb-3">
         <div class="col-4 text-center mx-auto">
-            <button class="btn my-btn-primary" style="width: 250px;position:fixed;bottom: 10px; left: 50%;">Pay</button>
+            <button class="btn my-btn-primary" style="width: 250px;position:fixed;bottom: 10px; left: 50%;" data-bs-toggle="modal" data-bs-target="#payBill">Pay</button>
         </div>
     </div>
 </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="payBill" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Pay Bill</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Do you really want to Pay the Bills</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button (click)="payBill()" type="button" data-bs-dismiss="modal" class="btn btn-primary">Pay Bill</button>
+        </div>
+      </div>
+    </div>
+  </div>

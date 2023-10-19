@@ -14,7 +14,6 @@
         <tr> 
           <th scope="col">#</th>
           <th scope="col">Bid</th>
-          <th scope="col">date_generated</th>
           <th scope="col">due_date</th>
           <th scope="col">status</th>
           <th scope="col">price</th>
@@ -25,8 +24,7 @@
         <tr>
           <th scope="row">{{i+1}}</th>
           <td><a [ariaDisabled]="!b.paymentStatus" routerLink="/dashboard/{{username}}/showBills/{{i}}">#{{b.invoiceUuid.slice(0,5)}}</a></td>
-          <td>21/10/2023</td>
-          <td>31/10/2023</td>
+          <td>{{b.dueDate|date}}</td>
           <td>
             <div *ngIf="b.paymentStatus">
               paid
@@ -38,7 +36,7 @@
           <td>Rs.{{b.amount}}</td>
           <td>
             <div *ngIf="b.paymentStatus">
-              date
+              {{b.paymentDate|date}}
             </div>
             <div *ngIf="!b.paymentStatus">
               -
