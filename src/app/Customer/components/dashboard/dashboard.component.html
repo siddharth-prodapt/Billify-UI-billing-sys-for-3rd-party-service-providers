@@ -1,8 +1,8 @@
 <app-nav-auth></app-nav-auth>
 <app-toast [message]="toastMessage"></app-toast>
-<div class="row">
+<!-- <div class="row">
     <h1 class="border rounded bg-warning-subtle border-warning-subtle" style="width: fit-content;">&nbsp;Hello {{username}}🖐️</h1>
-</div>
+</div> -->
 <!-- {{'loggedIn: '+loggedIn}} -->
 <div class="container row view">
     <div class="col-xs-1 col-md-1 text-center border rounded mx-1 d-none mx-auto" id="sideMenuCollapsed">
@@ -37,24 +37,24 @@
             <button routerLink="myProfile" type="button" class="list-group-item list-group-item-action"><i class="bi bi-person-circle"></i></button>
         </div>
     </div>
-    <div class="col-xs-3 col-md-3 text-center border rounded" id="sideMenu">
+    <div class="col-xs-3 col-md-3 text-center" id="sideMenu">
         <div class="list-group">
             <div class="navbar px-3">
-                <h3 class="mb-0">Menu</h3>
+                <h3 class="mb-0">Dashboard</h3>
                 <button class="btn" type="button"  (click)="closeNav()" id="navToggler">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
             <div class="dashboard-navigation-menu ">
-                <button routerLink="allPlans" type="button" class="btn my-btn-primary" (click)="highlightedButton(1)" [class.active]="selectedButton === 1">All Plans</button>
+                <button routerLink="allPlans" type="button" class="list-group-item list-group-item-action" (click)="highlightedButton(1)" [class.active]="selectedButton === 1">All Plans</button>
                 <button routerLink="myPlans" type="button" class="list-group-item list-group-item-action" (click)="highlightedButton(2)" [class.active]="selectedButton === 2">My Plans</button>
                 <button routerLink="addMember" type="button" class="list-group-item list-group-item-action" (click)="highlightedButton(3)" [class.active]="selectedButton === 3">Add Member</button>
                 
-                <div class="list-group-item">
+                <div>
                     <div class="accordion" id="#accordionExampleTwo">
-                        <div class="accordion-item">
+                        <div class="accordion-item" style="border: none;">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed p-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <button class="text-center list-group-item accordion-button collapsed p-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" (click)="highlightedButton(6)" [class.active]="selectedButton === 6">
                                     View Members
                                 </button>
                             </h2>
@@ -76,7 +76,7 @@
             </div>
         </div>
     </div>
-    <div class="col-xs-9 col-md-9 border rounded" id="content">
+    <div class="col-xs-9 col-md-9 rounded" style="background-color: rgba(233, 229, 226, 0.24);" id="content">
         <router-outlet></router-outlet>
     </div>
 </div>

@@ -11,7 +11,7 @@
     <div class="mx-auto row">
         <table class="table text-center table-hover">
             <thead>
-              <tr>
+              <tr> 
                 <th scope="col">#</th>
                 <th scope="col">Bid</th>
                 <th scope="col">date_generated</th>
@@ -21,10 +21,10 @@
                 <th scope="col">paid_on</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody *ngFor="let b in bills">
                 <tr>
                   <th scope="row">1</th>
-                  <td><a routerLink="/dashboard/{{username}}/showBills/104">104</a></td>
+                  <td><a routerLink="/dashboard/{{username}}/showBills/1">104</a></td>
                   <td>21/10/2023</td>
                   <td>31/10/2023</td>
                   <td>pending</td>
