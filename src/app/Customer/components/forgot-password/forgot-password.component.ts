@@ -5,6 +5,8 @@ import { animate, style, transition, trigger } from '@angular/animations';
 import { Login } from '../../services/auth-service/login.Model';
 import { Router } from '@angular/router';
 
+declare var bootstrap: any;
+
 @Component({
   selector: 'app-forgot-password',
   templateUrl: './forgot-password.component.html',
@@ -30,7 +32,13 @@ export class ForgotPasswordComponent {
   user:Login=new Login("","")
   user2:Forgot = new Forgot()
 
-  constructor(private authService:AuthService,private router:Router){ }
+  constructor(private authService:AuthService,private router:Router){
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = Array.from(tooltipTriggerList)
+    for(const tooltipTriggerEl of tooltipList){
+      new bootstrap.Tooltip(tooltipTriggerEl)
+    }
+  }
 
   sendOTP(verifyEmail:NgForm){
     console.log(verifyEmail)
@@ -43,6 +51,7 @@ export class ForgotPasswordComponent {
         }
       },
       (error)=>{
+        
         verifyEmail.resetForm()
       }
     )
@@ -76,6 +85,16 @@ export class ForgotPasswordComponent {
         console.log('Error in Connection.Please try Again')
       }
     )
+  }
+
+  showToast:boolean=false
+  closeToast() {
+    this.showToast = false;
+  }
+
+  show() {
+    this.showToast = true;
+    setTimeout(()=> this.closeToast(),3000)
   }
 
   ngOnInit(){

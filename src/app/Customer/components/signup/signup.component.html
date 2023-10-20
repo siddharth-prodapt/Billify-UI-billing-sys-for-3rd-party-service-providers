@@ -102,7 +102,12 @@
                 </div>
             </div>
             <div class="mt-1 mb-3" style="text-align: center;">
-                <button [disabled]="!signUpForm.valid" type="submit" class="btn my-btn-primary">Register</button>
+                <button [disabled]="!signUpForm.valid"
+                    type="submit"
+                    class="btn my-btn-primary">
+                    <span *ngIf="spinner" class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                    Register
+                </button>
             </div>
         </form>
     </div>

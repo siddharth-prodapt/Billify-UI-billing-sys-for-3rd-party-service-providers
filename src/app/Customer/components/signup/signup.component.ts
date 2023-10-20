@@ -24,6 +24,7 @@ export class SignupComponent {
   user:signup=new signup("","","","","")
   users:SignUp=new SignUp()
   isSignedUp:boolean=false
+  spinner:boolean=false
   message:string=""
   constructor(private router:Router,private authService:AuthService){ }
   ngOnInit(){
@@ -34,6 +35,7 @@ export class SignupComponent {
     }
   }
   signUp(){
+    this.spinner = true
     this.users.name = this.user.name as string
     this.users.email = this.user.email as string
     this.users.userType = this.user.userType as string
@@ -42,19 +44,22 @@ export class SignupComponent {
       (data)=>{
         this.isSignedUp = true
         console.log(data)
-        this.message="User Successfully Registered !!!"
+        this.message="User Successfully Registered🎉 Re-directing to login."
         this.show()
+        this.spinner = false
         this.router.navigate(['/login'])
       },
       (error)=>{
         if(error.status===403){
-          this.message="Email-Id exists"
+          this.message="Email-Id exists."
           this.show()
+          this.spinner=false
           this.router.navigate(['/login'])
         }
         else{
-          this.message="Error in Connection!!!"
+          this.message="Error in Connection."
           this.show()
+          this.spinner = false
           // setTimeout(()=>{
           //   this.router.navigateByUrl('/',{skipLocationChange:true}).then(()=>{
           //     this.router.navigate(['/signup'])
