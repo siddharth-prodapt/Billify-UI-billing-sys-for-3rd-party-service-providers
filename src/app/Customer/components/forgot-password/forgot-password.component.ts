@@ -28,7 +28,8 @@ export class ForgotPasswordComponent {
   validateOTPForm:boolean=false
   changePasswordForm:boolean=false
   name:string=""
-
+  spinner:boolean=false
+  message:string=""
   user:Login=new Login("","")
   user2:Forgot = new Forgot()
 
@@ -47,11 +48,15 @@ export class ForgotPasswordComponent {
         if(response.status === 200){
           this.validateOTPForm = true 
           this.user2 = response.body as Forgot
-          console.log(this.user2)
+          this.message = "Please Fill Otp"
+          this.show()
+          
+          // console.log(this.user2)
         }
       },
       (error)=>{
-        
+        this.message = "Email-Id not Registered."
+        this.show()
         verifyEmail.resetForm()
       }
     )
@@ -61,10 +66,14 @@ export class ForgotPasswordComponent {
     // console.log(this.otp)
     if(this.user2.otp === this.otp){
       this.changePasswordForm = true
+      this.message = "Please fill your new Password."
+      this.show()
     }
     else{
-      console.log('Invalid OTP send Again!')
+      // console.log('Invalid OTP send Again!')
       this.validateOTPForm=false
+      this.message = "Invalid OTP !!!"
+      this.show()
       validateOTPForm.resetForm()
     }
   }
@@ -76,13 +85,15 @@ export class ForgotPasswordComponent {
     this.authService.changePassword(this.user).subscribe(
       (response)=>{
         console.log(response)
-        setInterval(()=>{
-          this.router.navigate(['login'])
-        },2000)
+        this.message = "Password Changed Successfully."
+        this.show()
+        this.router.navigate(['/login'])
       },
       (error)=>{
         this.validateOTPForm=false
-        console.log('Error in Connection.Please try Again')
+        this.message = "Error in Connection.Please try Again"
+        this.show()
+        // console.log('Error in Connection.Please try Again')
       }
     )
   }
