@@ -46,12 +46,7 @@ export class LoginComponent {
           this.spinner=false
           this.message="Login Successfull 🎉. Re-directing to Dashboard!"
           this.show()
-          if(this.loginResponse.role === 'ROLE_USER'){
-            this.router.navigate(["/dashboard/"+this.loginResponse.name])
-          }else if(this.loginResponse.role === 'ROLE_ADMIN'){
-            localStorage.setItem('admin','true')
-            this.router.navigate(["/admin/"])
-          }
+          
         }
       },
       (error)=>{
@@ -76,6 +71,17 @@ export class LoginComponent {
 
   show() {
     this.showToast = true;
-    setTimeout(()=> this.closeToast(),3000)
+    setTimeout(()=>{
+      this.closeToast()
+      if(this.loginResponse.role === 'ROLE_USER'){
+        this.router.navigate(["/dashboard/"+this.loginResponse.name])
+      }else if(this.loginResponse.role === 'ROLE_ADMIN'){
+        localStorage.setItem('admin','true')
+        this.router.navigate(["/admin/"])
+      }
+    },2000)
   }
+  // show(){
+  //   this.showToast
+  // }
 }

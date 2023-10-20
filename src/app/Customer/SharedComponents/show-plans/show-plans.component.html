@@ -1,6 +1,8 @@
 <div *ngIf="plan?.planType=='MOBILE'">
-  <div class="card shadow mx-auto" style="width: 300px;height: 380px;" id="card-hover">
-    <img src="./../../../../assets/images/netflix.jpg" class="card-img-top" alt="netflix-img" height="" width="">
+  <div class=" card-hover card mx-auto" style="width: 300px;height: 380px;" id="">
+    <div style="height: 200px; width: 100%; overflow: hidden;">
+      <img src="{{image}}" class="card-img-top" alt="netflix-img" height="" width="">
+    </div>
     <div class="card-body">
       <h5 class="card-title" style="font-size: 30px;font-weight: 700; margin-bottom: 5px;">{{plan?.name}}</h5>
       <div class="row">

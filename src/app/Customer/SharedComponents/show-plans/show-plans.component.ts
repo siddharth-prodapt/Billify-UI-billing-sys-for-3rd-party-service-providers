@@ -19,6 +19,7 @@ export class ShowPlansComponent implements OnInit{
   pid:string|undefined
 
   subscribeBtn!:boolean
+  image:string=""
 
   constructor(private s1:SubscribePlanService,private renderer:Renderer2){ }
 
@@ -31,6 +32,7 @@ export class ShowPlansComponent implements OnInit{
       this.subscribeBtn = true
       this.planId='#myPlans'+this.plan?.id
       this.pid='myPlans'+this.plan?.id
+      this.image = "./../../../../assets/images/"+this.plan?.imgUrl
       // console.log(this.planId,this.pid)
     }
   }
