@@ -45,20 +45,20 @@ export class SignupComponent {
         this.isSignedUp = true
         console.log(data)
         this.message="User Successfully Registered🎉 Re-directing to login."
-        this.show()
+        this.show('/login')
         this.spinner = false
-        this.router.navigate(['/login'])
+        // this.router.navigate(['/login'])
       },
       (error)=>{
         if(error.status===403){
           this.message="Email-Id exists."
-          this.show()
+          this.show('/login')
           this.spinner=false
-          this.router.navigate(['/login'])
+          // this.router.navigate(['/login'])
         }
         else{
           this.message="Error in Connection."
-          this.show()
+          this.show("")
           this.spinner = false
           // setTimeout(()=>{
           //   this.router.navigateByUrl('/',{skipLocationChange:true}).then(()=>{
@@ -69,23 +69,31 @@ export class SignupComponent {
       }
     )
   }
-  validate(){
-    console.log('inside validate') 
-    console.log(this.user)
-    this.setRoute(true)
-  }
-  setRoute(isValidUser:boolean){
-    if(isValidUser){
-      this.router.navigate(["/login"])
-    }
-  }
+  // validate(){
+  //   console.log('inside validate') 
+  //   console.log(this.user)
+  //   this.setRoute(true)
+  // }
+  // setRoute(isValidUser:boolean){
+  //   if(isValidUser){
+  //     this.router.navigate(["/login"])
+  //   }
+  // }
 
   showToast:boolean=false
   closeToast() {
     this.showToast = false;
   }
-  show() {
+  show(url:string) {
     this.showToast = true;
-    setTimeout(()=> this.closeToast(),3000)
+    setTimeout(()=>{
+      if(url === ""){
+        this.closeToast()
+      }
+      else{
+        this.closeToast()
+        this.router.navigate(['/login'])
+      }
+    },2000)
   }
 }

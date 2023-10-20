@@ -1,22 +1,22 @@
 <div *ngIf="plan?.planType=='MOBILE'">
   <div class=" card-hover card mx-auto" style="width: 300px;height: 380px;" id="">
     <div style="height: 200px; width: 100%; overflow: hidden;">
-      <img src="{{image}}" class="card-img-top" alt="netflix-img" height="" width="">
+      <img src="{{image}}" class="card-img-top" alt="{{image}}" height="" width="">
     </div>
     <div class="card-body">
       <h5 class="card-title" style="font-size: 30px;font-weight: 700; margin-bottom: 5px;">{{plan?.name}}</h5>
-      <div class="row">
-        <div class="col-md-6">
+      <div *ngIf="plan?.planFor == 'MOBILE'" class="row">
+          <div class="col-md-6">
             <p style="font-size: 15px; margin-bottom: 0px;">Unlimited</p>
             <p style="font-size: 13px; margin-bottom: 0px;">Internet</p>
         </div>
         <div class="col-md-6">
-            <p style="font-size: 15px; margin-bottom: 0px;">Upto 40 mbps</p>
+            <p style="font-size: 15px; margin-bottom: 0px;">{{plan?.speed}} mbps</p>
             <p style="font-size: 13px; margin-bottom: 0px;">Internet</p>
         </div>
     </div>
     <div class="row">
-        <p style="font-size: 13px; margin-bottom: 0px;margin-top: 12px;">Includes Airtel Thanks Benifit</p>
+        <p style="font-size: 13px; margin-bottom: 0px;margin-top: 12px;">Plan Type: {{plan?.planFor}}</p>
     </div>
     <div class="card-body row align-items-center">
         <div class="col-md-6">
@@ -32,6 +32,7 @@
     </div>
     </div>
   </div>
+
   <!-- <div class="card">
     <img src="..." class="card-img-top" alt="...">//
     <div class="card-body">

@@ -17,6 +17,8 @@ export class ShowBillComponent {
   index!:number
   subs:Subscriptions[] = []
   invoice:Invoice = new Invoice()
+  message:string=""
+  paymentStatus:boolean=false
   total:number=0
   payload:PayInvoice = new PayInvoice("","",0)
 
@@ -28,7 +30,15 @@ export class ShowBillComponent {
     console.log(this.payload)
     this.payInvoiceService.payInvoice(this.payload).subscribe((response)=>{
       console.log(response)
-    })
+      this.message = "Bill Paid 🎊"
+      this.paymentStatus = true
+      this.show()
+    },
+    (error)=>{
+      this.message = "Technical Issue Try again!"
+      this.show()
+    }
+    )
   }
 
   ngOnInit(){
@@ -44,5 +54,15 @@ export class ShowBillComponent {
       this.subs = response[this.index].subscribedPlans as Subscriptions[]
       console.log(typeof(this.subs))
     })
+  }
+
+  showToast:boolean=false
+  closeToast() {
+    this.showToast = false;
+  }
+
+  show() {
+    this.showToast = true;
+    setTimeout(()=> this.closeToast(),3000)
   }
 }

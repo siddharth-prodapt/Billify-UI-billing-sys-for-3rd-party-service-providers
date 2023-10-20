@@ -17,6 +17,7 @@ export class ShowPlansComponent implements OnInit{
   subscribePlan:SubscribePlan=new SubscribePlan()
   planId:string|undefined
   pid:string|undefined
+  
 
   subscribeBtn!:boolean
   image:string=""
@@ -26,6 +27,7 @@ export class ShowPlansComponent implements OnInit{
   ngOnInit(): void {
     if(this.myPlan){
       this.subscribeBtn = false
+      this.image = "./../../../../assets/images/"+this.plan?.imgUrl
     }
     else{
       // console.log('on init')
@@ -33,6 +35,7 @@ export class ShowPlansComponent implements OnInit{
       this.planId='#myPlans'+this.plan?.id
       this.pid='myPlans'+this.plan?.id
       this.image = "./../../../../assets/images/"+this.plan?.imgUrl
+      console.log('img'+this.image)
       // console.log(this.planId,this.pid)
     }
   }
@@ -43,7 +46,10 @@ export class ShowPlansComponent implements OnInit{
     this.subscribePlan.subscribedPlanId=id as string
     this.s1.subscribePlan(this.subscribePlan).subscribe((data)=>{
       console.log(data)
-    }
+      
+    },
+    
     )
   }
+  
 }
