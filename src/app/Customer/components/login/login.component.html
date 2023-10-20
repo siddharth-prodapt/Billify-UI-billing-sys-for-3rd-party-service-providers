@@ -1,7 +1,7 @@
 <app-nav-auth></app-nav-auth>
 <div class="row mt-5 align-items-center">
     <div [@rightLeftAnimation] class="col-md-4 col-sm-8 mx-auto rounded shadow">
-        <form #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off">
+        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)" autocomplete="off">
             <div class="row mb-3">
                 <div class="col-auto mt-2 mx-auto" style="color: var(--secondary);">
                     <div class="display-6">Log-In</div>
@@ -38,14 +38,14 @@
             <div class="mb-2" style="text-align: end;">
                 <a id="forgotPassword" class="hover-underline-animation" routerLink="/forgotPassword" style="color: var(--secondary);">Forgot Password?</a>
             </div>
-            <div class="text-center" *ngIf="showSuccessToast">
+            <!-- <div class="text-center" *ngIf="showSuccessToast">
                 <app-toast [message]="message"></app-toast>
                 <small class="text-success">{{successMessage}}</small>
             </div>
             <div class="text-center" *ngIf="showErrorToast">
                 <app-toast [message]="message"></app-toast>
                 <small class="text-danger">{{errmessage}}</small>
-            </div>
+            </div> -->
             <!-- {{email.invalid}}
             {{password.invalid}}
             {{loginForm.valid}} -->
@@ -64,3 +64,16 @@
         <img src="../../../../assets/images/login-bg.svg" alt="" width="90%" height="450px">
     </div>
 </div>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="liveToast" class="toast" [ngClass]="{'show':showToast}" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <strong class="me-auto">Billify</strong>
+        <small>2 secs ago</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        {{message}}
+      </div>
+    </div>
+  </div>

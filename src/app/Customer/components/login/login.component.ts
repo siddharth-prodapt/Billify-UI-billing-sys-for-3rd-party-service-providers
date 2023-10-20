@@ -23,11 +23,7 @@ import { trigger, style, animate, transition } from '@angular/animations';
 export class LoginComponent {
   inLogin:boolean=true
   spinner:boolean=false
-  showSuccessToast:boolean=false
-  showErrorToast:boolean=false
   message!:string
-  successMessage:string=""
-  errmessage:string=""
   username:string='';
   loginResponse:LoginResponse = new LoginResponse("","","","","","")
   user:Login=new Login("","");
@@ -36,12 +32,11 @@ export class LoginComponent {
   ngOnInit(){
     
   }
-  login(){
+  login(loginForm:NgForm){
     this.spinner=true
     this.a1.getToken(this.user).subscribe(
       (response)=>{
         if(response.status===200){
-          this.successMessage="logIn Successfull!"
           this.loginResponse = response.body as LoginResponse
           localStorage.setItem('token',this.loginResponse.token)
           localStorage.setItem('loggedIn','true')
@@ -49,9 +44,8 @@ export class LoginComponent {
           localStorage.setItem('uuid',this.loginResponse.uuid as string)
           console.log(localStorage.getItem('token'))
           this.spinner=false
-          this.showSuccessToast=true
-          this.message="Login Successfull 🎉"
-          this.showSuccessToast=false
+          this.message="Login Successfull 🎉. Re-directing to Dashboard!"
+          this.show()
           if(this.loginResponse.role === 'ROLE_USER'){
             this.router.navigate(["/dashboard/"+this.loginResponse.name])
           }else if(this.loginResponse.role === 'ROLE_ADMIN'){
@@ -62,19 +56,26 @@ export class LoginComponent {
       },
       (error)=>{
         if(error.status===403){
-          this.errmessage="Incorrect EmailId & Password"
           this.spinner=false
-          this.showErrorToast=true
-          this.message=this.errmessage
+          this.message="Incorrect EmailId & Password."
+          this.show()
+          loginForm.reset()
         }
         else{
-          this.errmessage="Error in Connection."
           this.spinner=false
-          this.showErrorToast=true
-          this.message=this.errmessage
+          this.message="Error in Connection."
+          this.show()
         }
       }
     )
   }
-   
+  showToast:boolean=false
+  closeToast() {
+    this.showToast = false;
+  }
+
+  show() {
+    this.showToast = true;
+    setTimeout(()=> this.closeToast(),3000)
+  }
 }
