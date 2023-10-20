@@ -11,6 +11,7 @@ import { AddMemberService } from 'src/app/Customer/services/member-services/add-
 export class AddMemberComponent {
 
   memberUser:Member = new Member()
+  message:string=""
 
   constructor(private addMemberService:AddMemberService){ }
 
@@ -19,10 +20,23 @@ export class AddMemberComponent {
     this.addMemberService.addMemberUser(this.memberUser).subscribe(
       (data)=>{
         console.log(data)
+        this.message = "Member added successfully 👍"
+        this.show()
       },
       (error)=>{
         console.log(error)
+        this.message = "Technical Issue Please Try Again !"
+        this.show()
       }
     )
+  }
+  showToast:boolean=false
+  closeToast() {
+    this.showToast = false;
+  }
+
+  show() {
+    this.showToast = true;
+    setTimeout(()=> this.closeToast(),3000)
   }
 }
