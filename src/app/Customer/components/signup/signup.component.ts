@@ -23,10 +23,8 @@ declare var bootstrap: any;
 export class SignupComponent {
   user:signup=new signup("","","","","")
   users:SignUp=new SignUp()
-  toasts:boolean=false
   isSignedUp:boolean=false
-  successMessage!:string
-  errorMessage!:string
+  message:string=""
   constructor(private router:Router,private authService:AuthService){ }
   ngOnInit(){
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
@@ -42,27 +40,26 @@ export class SignupComponent {
     this.users.password = this.user.password as string
     this.authService.signUpUser(this.users).subscribe(
       (data)=>{
-        this.toasts=true
-        // this.t.show()
         this.isSignedUp = true
         console.log(data)
-        this.successMessage="User Successfully Registered !!!"
-        setTimeout(()=>{this.router.navigate(['/login'])},2000)
+        this.message="User Successfully Registered !!!"
+        this.show()
+        this.router.navigate(['/login'])
       },
       (error)=>{
-        this.toasts=true
-        // this.t.show()
         if(error.status===403){
-          this.errorMessage="Email-Id exists"
-          setTimeout(()=>{this.router.navigate(['/login'])},2000)
+          this.message="Email-Id exists"
+          this.show()
+          this.router.navigate(['/login'])
         }
         else{
-          this.errorMessage="Error in Connection"
-          setTimeout(()=>{
-            this.router.navigateByUrl('/',{skipLocationChange:true}).then(()=>{
-              this.router.navigate(['/signup'])
-            })
-          },2000)
+          this.message="Error in Connection!!!"
+          this.show()
+          // setTimeout(()=>{
+          //   this.router.navigateByUrl('/',{skipLocationChange:true}).then(()=>{
+          //     this.router.navigate(['/signup'])
+          //   })
+          // },2000)
         }
       }
     )
@@ -76,5 +73,14 @@ export class SignupComponent {
     if(isValidUser){
       this.router.navigate(["/login"])
     }
+  }
+
+  showToast:boolean=false
+  closeToast() {
+    this.showToast = false;
+  }
+  show() {
+    this.showToast = true;
+    setTimeout(()=> this.closeToast(),3000)
   }
 }
