@@ -30,6 +30,9 @@ import { AdminDashboardComponent } from './Admin/components/admin-dashboard/admi
 import { DefaultComponent } from './Admin/components/admin-dashboard/default/default.component';
 import { ToastComponent } from './Customer/SharedComponents/toast/toast.component';
 import { ForgotPasswordComponent } from './Customer/components/forgot-password/forgot-password.component';
+import { ViewUserComponent } from './Admin/components/admin-dashboard/view-user/view-user.component';
+import { ShowUserComponent } from './Admin/components/admin-dashboard/show-user/show-user.component';
+import { GenerateInvoiceComponent } from './Admin/components/admin-dashboard/generate-invoice/generate-invoice.component';
 
 
 
@@ -60,6 +63,9 @@ import { ForgotPasswordComponent } from './Customer/components/forgot-password/f
     DefaultComponent,
     ToastComponent,
     ForgotPasswordComponent,
+    ViewUserComponent,
+    ShowUserComponent,
+    GenerateInvoiceComponent,
   ],
   imports: [
     BrowserAnimationsModule,

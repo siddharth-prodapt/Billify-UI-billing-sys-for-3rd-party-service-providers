@@ -1,0 +1,33 @@
+<div class="row">
+    <h1>All Users List...</h1>
+</div>
+<hr>
+<table class="table text-center">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <!-- <th scope="col">Ph No.</th> -->
+        <th scope="col">Role</th>
+        <th scope="col">Created At</th>
+        <th scope="col">Account Status</th>
+        <th scope="col">sw</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let user of allUsers; let i=index">
+      <tr>
+        <th scope="row">{{i+1}}</th>
+        <td><a routerLink="/admin/user/{{user.uuid}}">{{user.name}}</a></td>
+        <!-- <td>{{user.phoneNo}}</td> -->
+        <td>{{user.role}}</td>
+        <td>{{user.createdAt|date}}</td>
+        <td>{{user.accountStatus}}</td>
+        <td>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="status" checked>
+                <label class="form-check-label" for="status"></label>
+            </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>

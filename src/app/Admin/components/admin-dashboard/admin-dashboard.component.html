@@ -1,7 +1,7 @@
 <app-nav-auth></app-nav-auth>
 
 <h1>Welcome to Dashboard Mr.Admin</h1>
-<div class="container row">
+<div class="container row view">
     <div class="col-xs-1 col-md-1 text-center border rounded mx-1 d-none mx-auto" id="sideMenuCollapsed">
         <div class="list-group">
             <div class="navbar mx-auto">
@@ -17,18 +17,18 @@
     <div class="col-xs-3 col-md-3 text-center border rounded" id="sideMenu">
         <div class="list-group">
             <div class="navbar px-3">
-                <h3 class="mb-0">Menu</h3>
+                <h3 class="mb-0">Admin</h3>
                 <button class="btn" type="button"  (click)="closeNav()" id="navToggler">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
-            <button routerLink="/admin" type="button" class="list-group-item list-group-item-action">Admin Home</button>
-            <button type="button" class="list-group-item list-group-item-action">View Users</button>
-            <button type="button" class="list-group-item list-group-item-action">Generate Invoice</button>
-            <button type="button" class="list-group-item list-group-item-action">Stats</button>
-            
-            <button type="button" class="list-group-item list-group-item-action">My Bills</button>
-            <button type="button" class="list-group-item list-group-item-action">My Profile</button>
+            <div class="dashboard-navigation-menu">
+                <button routerLink="/admin" type="button" class="list-group-item list-group-item-action" (click)="highlightedButton(1)" [class.active]="selectedButton === 1">Admin Home</button>
+                <button routerLink="viewAllUsers" type="button" class="list-group-item list-group-item-action" (click)="highlightedButton(2)" [class.active]="selectedButton === 2">View Users</button>
+                <button routerLink="generateInvoice" type="button" class="list-group-item list-group-item-action" (click)="highlightedButton(3)" [class.active]="selectedButton === 3">Generate Invoice</button>
+                <button type="button" class="list-group-item list-group-item-action">Stats</button>
+                <button type="button" class="list-group-item list-group-item-action">My Profile</button>
+            </div>
         </div>
     </div>
     <div class="col-xs-9 col-md-9 border rounded" id="content">

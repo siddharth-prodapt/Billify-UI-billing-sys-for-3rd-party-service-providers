@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin-dashboard.component.css']
 })
 export class AdminDashboardComponent {
+  selectedButton!: number;
 
   openNav(){
     console.log('clicked open nav')
@@ -18,5 +19,8 @@ export class AdminDashboardComponent {
     document.querySelector("#sideMenuCollapsed")?.classList.remove("d-none")
     document.querySelector("#content")?.classList.add("col-md-11")
     document.querySelector("#sideMenu")?.classList.add("d-none")
+  }
+  highlightedButton(buttonNumber:number){
+    this.selectedButton=buttonNumber
   }
 }

@@ -19,6 +19,9 @@ import { RoleGuard } from './config/guards/role.guard';
 import { AdminDashboardComponent } from './Admin/components/admin-dashboard/admin-dashboard.component';
 import { DefaultComponent } from './Admin/components/admin-dashboard/default/default.component';
 import { ForgotPasswordComponent } from './Customer/components/forgot-password/forgot-password.component';
+import { ViewUserComponent } from './Admin/components/admin-dashboard/view-user/view-user.component';
+import { ShowUserComponent } from './Admin/components/admin-dashboard/show-user/show-user.component';
+import { GenerateInvoiceComponent } from './Admin/components/admin-dashboard/generate-invoice/generate-invoice.component';
 
 const routes: Routes = [
   {
@@ -44,7 +47,7 @@ const routes: Routes = [
   {
     path: 'dashboard/:username',
     component: DashboardComponent,
-    // canActivate:[LoginGuard],
+    canActivate:[LoginGuard],
     children: [
       {
         path: '',
@@ -99,8 +102,20 @@ const routes: Routes = [
     component: AdminDashboardComponent,
     children:[
       {
-        path:'',
+        path: '',
         component:DefaultComponent
+      },
+      {
+        path: 'viewAllUsers',
+        component:ViewUserComponent
+      },
+      {
+        path: 'user/:id',
+        component:ShowUserComponent
+      },
+      {
+        path: 'generateInvoice',
+        component:GenerateInvoiceComponent
       }
     ]
   },
