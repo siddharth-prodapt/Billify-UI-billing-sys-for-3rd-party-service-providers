@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AdminDashboardService } from '../../services/admin-dashboard/admin-dashboard.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -6,7 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin-dashboard.component.css']
 })
 export class AdminDashboardComponent {
-  selectedButton!: number;
+
+  selectedButton: number=1;
+
+  constructor(private dashboard:AdminDashboardService) { }
 
   openNav(){
     console.log('clicked open nav')

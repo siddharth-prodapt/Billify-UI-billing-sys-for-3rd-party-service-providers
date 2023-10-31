@@ -11,7 +11,7 @@
         <th scope="col">Role</th>
         <th scope="col">Created At</th>
         <th scope="col">Account Status</th>
-        <th scope="col">sw</th>
+        <th scope="col">Access</th>
       </tr>
     </thead>
     <tbody *ngFor="let user of allUsers; let i=index">
@@ -22,11 +22,11 @@
         <td>{{user.role}}</td>
         <td>{{user.createdAt|date}}</td>
         <td>{{user.accountStatus}}</td>
-        <td>
-            <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" role="switch" id="status" checked>
-                <label class="form-check-label" for="status"></label>
-            </div>
+        <td class="text-end">
+          <div class="form-check form-switch">
+            <input class="form-check-input" (click)="changeStatus(user.uuid)" type="checkbox" role="switch" id="status" [checked]="user.accountAccess">
+            <label class="form-check-label" for="status"></label>
+          </div>
         </td>
       </tr>
     </tbody>

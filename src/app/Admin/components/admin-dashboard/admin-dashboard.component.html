@@ -1,6 +1,5 @@
 <app-nav-auth></app-nav-auth>
 
-<h1>Welcome to Dashboard Mr.Admin</h1>
 <div class="container row view">
     <div class="col-xs-1 col-md-1 text-center border rounded mx-1 d-none mx-auto" id="sideMenuCollapsed">
         <div class="list-group">
@@ -9,9 +8,13 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
-            <button routerLink="/admin" type="button" class="list-group-item list-group-item-action">View</button>
-            <button type="button" class="list-group-item list-group-item-action" aria-current="true"><i class="bi bi-bookmarks-fill"></i></button>
-            <button type="button" class="list-group-item list-group-item-action"><i class="bi bi-person-add"></i></button>
+            <div class="dashboard-navigation-menu">
+                <button routerLink="/admin" type="button" class="list-group-item list-group-item-action" (click)="highlightedButton(1)" [class.active]="selectedButton === 1"><i class="bi bi-house-door-fill"></i></button>
+                <button routerLink="viewAllUsers" type="button" class="list-group-item list-group-item-action" (click)="highlightedButton(2)" [class.active]="selectedButton === 2"><i class="bi bi-people-fill"></i></button>
+                <button routerLink="generateInvoice" type="button" class="list-group-item list-group-item-action" (click)="highlightedButton(3)" [class.active]="selectedButton === 3"><i class="bi bi-receipt-cutoff"></i></button>
+                <button routerLink="generateInvoice" type="button" class="list-group-item list-group-item-action"><i class="bi bi-person-circle"></i></button>
+                <button routerLink="generateInvoice" type="button" class="list-group-item list-group-item-action"><i class="bi bi-bar-chart-line-fill"></i></button>
+            </div>
         </div>
     </div>
     <div class="col-xs-3 col-md-3 text-center border rounded" id="sideMenu">
@@ -23,7 +26,7 @@
                 </button>
             </div>
             <div class="dashboard-navigation-menu">
-                <button routerLink="/admin" type="button" class="list-group-item list-group-item-action" (click)="highlightedButton(1)" [class.active]="selectedButton === 1">Admin Home</button>
+                <button routerLink="/admin" type="button" class="list-group-item list-group-item-action" (click)="highlightedButton(1)" [class.active]="selectedButton === 1">Home</button>
                 <button routerLink="viewAllUsers" type="button" class="list-group-item list-group-item-action" (click)="highlightedButton(2)" [class.active]="selectedButton === 2">View Users</button>
                 <button routerLink="generateInvoice" type="button" class="list-group-item list-group-item-action" (click)="highlightedButton(3)" [class.active]="selectedButton === 3">Generate Invoice</button>
                 <button type="button" class="list-group-item list-group-item-action">Stats</button>

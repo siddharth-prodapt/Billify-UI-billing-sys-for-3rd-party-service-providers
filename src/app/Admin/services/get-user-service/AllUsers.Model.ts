@@ -1,4 +1,5 @@
 export class AllUsers{
+    accountAccess!:boolean
     uuid!:string
     email!:string
     isAvailable!:string

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AdminDashboardService } from 'src/app/Admin/services/admin-dashboard/admin-dashboard.service';
 
 @Component({
   selector: 'app-default',
@@ -7,4 +8,18 @@ import { Component } from '@angular/core';
 })
 export class DefaultComponent {
 
+  information:any={}
+  constructor(private dashboard:AdminDashboardService) { }
+
+  ngOnInit(){
+    this.dashboard.getDashboardData().subscribe(
+      (response)=>{
+        this.information = response
+        console.log(response)
+      },
+      (error)=>{
+        console.log(error)
+      }
+    )
+  }
 }
