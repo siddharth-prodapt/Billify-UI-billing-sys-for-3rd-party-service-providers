@@ -5,7 +5,7 @@ export class LoginResponse{
     token!:string
     refreshToken!:string
     role!:string
-    accountAccess!:boolean
+    accountAccess!:string
 
     constructor(){ }
 }

@@ -8,12 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav-auth.component.css']
 })
 export class NavAuthComponent {
-  @Input() accountAccess:boolean=false
+  accountAccess:boolean=false
+  message!:string
   logout:boolean=false
   admin:boolean=false
-  constructor(private authService:AuthService,private router:Router){ }
-
-  @Input()
+  constructor(private a1:AuthService,private router:Router){ }
 
   logOut(){
     localStorage.clear()
@@ -33,6 +32,14 @@ export class NavAuthComponent {
       if(localStorage.getItem('admin')==='true'){
         this.admin=true
       }
+    }
+    if(localStorage.getItem('accountAccess') === 'true'){
+      this.accountAccess = true
+      this.message = 'ACTIVE'
+    }
+    else{
+      this.accountAccess = false
+      this.message = 'TERMINATED'
     }
   }
 }

@@ -4,6 +4,7 @@ import { Login } from './login.Model';
 import { CONSTANT } from 'src/app/config/constant/constant';
 import { Observable, Subscribable, Subscriber, Subscription } from 'rxjs';
 import { SignUp } from './SignUp.Model';
+import { LoginResponse } from './loginResponse.Model';
 
 
 
@@ -12,10 +13,10 @@ import { SignUp } from './SignUp.Model';
 })
 export class AuthService {
 
+  userDetails!:Observable<HttpResponse<LoginResponse>>
   
   constructor(private http:HttpClient) { }
 
-  logInObservable!:Observable<boolean>
   public post(body:Login){
     return this.http.post(CONSTANT.BASE_URL+"/login",body,{responseType:"text" as "json"})
   }
@@ -24,7 +25,8 @@ export class AuthService {
       'Content-Type':'application/json'
     })
     console.log(user.email,user.password)
-    return this.http.post(CONSTANT.BASE_URL+"/auth/signin",user,{headers,observe:'response'})
+    this.userDetails =  this.http.post<LoginResponse>(CONSTANT.BASE_URL+"/auth/signin",user,{headers,observe:'response'})
+    return this.userDetails
   }
   public signUpUser(user:SignUp){
     const headers=new HttpHeaders({

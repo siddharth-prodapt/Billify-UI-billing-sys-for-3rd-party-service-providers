@@ -37,11 +37,17 @@ export class LoginComponent {
     this.a1.getToken(this.user).subscribe(
       (response)=>{
         if(response.status===200){
+          this.a1.userDetails.subscribe(
+            (response)=>{
+              console.log(response)
+            }
+          )
           this.loginResponse = response.body as LoginResponse
           localStorage.setItem('token',this.loginResponse.token)
           localStorage.setItem('loggedIn','true')
           localStorage.setItem('name',this.loginResponse.name)
           localStorage.setItem('uuid',this.loginResponse.uuid as string)
+          localStorage.setItem('accountAccess',this.loginResponse.accountAccess)
           console.log(localStorage.getItem('token'))
           this.spinner=false
           this.message="Login Successfull 🎉. Re-directing to Dashboard!"

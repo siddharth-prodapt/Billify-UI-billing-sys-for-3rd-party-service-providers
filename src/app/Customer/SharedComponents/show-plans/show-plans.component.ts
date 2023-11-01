@@ -12,6 +12,7 @@ import { SubscribePlanService } from '../../services/plan-service/subscribe-plan
 export class ShowPlansComponent implements OnInit{
   @Input() plan:Plans|undefined
   @Input() myPlan:boolean=false
+  @Input() accountAccess!:boolean
   // @ViewChild('card-hover',{read:ElementRef}) myCard!:ElementRef
 
   subscribePlan:SubscribePlan=new SubscribePlan()

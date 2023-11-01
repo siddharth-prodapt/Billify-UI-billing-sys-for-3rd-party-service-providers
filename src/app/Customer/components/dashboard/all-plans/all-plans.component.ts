@@ -9,14 +9,18 @@ import { PlanDetailsService } from 'src/app/Customer/services/plan-service/plan-
   // providers:[PlanDetailsService]
 })
 export class AllPlansComponent {
+  accountAccess:boolean=false
   allPlans:Plans[]=[]
   constructor(private allPlanService:PlanDetailsService) { }
   
   ngOnInit(){
     this.allPlanService.getPlans().subscribe((data) => {
-    console.log("ALL PlanDetails: "+data);
-    this.allPlans=data 
-    console.log("This. all plans",this.allPlans);
-  });
+      console.log("ALL PlanDetails: "+data);
+      this.allPlans=data 
+      console.log("This. all plans",this.allPlans);
+    });
+    if(localStorage.getItem('accountAccess') === 'true'){
+      this.accountAccess = true
+    }
   }
 }

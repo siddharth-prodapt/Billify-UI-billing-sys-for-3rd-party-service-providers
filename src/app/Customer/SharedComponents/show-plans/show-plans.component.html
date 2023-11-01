@@ -24,7 +24,7 @@
             <h3 style="font-size: 23px;margin-bottom: 0px;">Rs.{{plan?.price}}</h3>
         </div>
         <div *ngIf="subscribeBtn" class="col-md-6">
-          <button class="btn my-btn-primary-outline" data-bs-toggle="modal" [attr.data-bs-target]="planId" style="font-size: 15px;">Buy Now</button>
+          <button class="btn my-btn-primary-outline" data-bs-toggle="modal" [attr.data-bs-target]="planId" style="font-size: 15px;" [disabled]="!accountAccess">Buy Now</button>
         </div>
         <div *ngIf="!subscribeBtn" class="col-md-6">
           <button [disabled]="!subscribeBtn" class="btn my-btn-primary-outline" style="font-size: 15px;">Subscribed</button>
