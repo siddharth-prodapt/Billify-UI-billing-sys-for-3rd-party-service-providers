@@ -47,22 +47,6 @@
                 </div>
             </div>
             <!--  -->
-            <div class="mb-3 border rounded p-2">
-                <label for="UserType" class="form-label">User Type<small class="required">*</small></label>
-                <div class="row">
-                    <div class="form-check col-auto mx-auto">
-                        <input #userType="ngModel" [(ngModel)]="user.userType" class="form-check-input" type="radio" name="userTypes" id="superuser" value="superuser" required>
-                        <label class="form-check-label" for="exampleRadios1">Super User</label>
-                    </div>
-                    <div class="form-check col-auto mx-auto">
-                        <input [(ngModel)]="user.userType" class="form-check-input" type="radio" name="userTypes" id="normaluser" value="normaluser" required>
-                        <label class="form-check-label" for="exampleRadios2">Normal User</label>
-                    </div>
-                </div>
-                <div *ngIf="userType.dirty && userType.errors?.['required']">
-                    <small class="text-danger">User Type is required</small>
-                </div>
-            </div>
             <div class="mb-3">
                 <label for="Password" class="form-label">Password<small class="required">*</small>&nbsp;
                     <i class="bi bi-info-circle"

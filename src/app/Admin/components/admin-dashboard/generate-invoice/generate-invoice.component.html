@@ -14,18 +14,20 @@
         <th scope="col"></th>
       </tr>
     </thead>
-    <tbody *ngFor="let user of allUsers; let i=index">
-      <tr>
+    <tbody>
+      <tr *ngFor="let user of allUsers; let i=index">
         <th scope="row">{{i+1}}</th>
         <td><a routerLink="/admin/user/{{user.uuid}}">{{user.name}}</a></td>
         <!-- <td>{{user.phoneNo}}</td> -->
         <td>{{user.role}}</td>
-        <td>{{user.createdAt|date}}</td>
+        <td>{{user.createdAt}}</td>
         <td>{{user.accountStatus}}</td>
+        <!-- <td>{{user.invoiceGenerated}}</td> -->
         <td *ngIf="!user.invoiceGenerated">
           <button class="btn btn-sm my-btn-primary" (click)="generateInv(user.uuid)">Generate Invoice</button>
         </td>
         <td *ngIf="user.invoiceGenerated">
+          
           <button class="btn btn-sm btn-success" [disabled]="user.invoiceGenerated">Generated</button>
         </td>
       </tr>

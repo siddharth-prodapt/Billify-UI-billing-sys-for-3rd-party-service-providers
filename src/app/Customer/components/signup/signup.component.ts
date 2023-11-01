@@ -38,7 +38,6 @@ export class SignupComponent {
     this.spinner = true
     this.users.name = this.user.name as string
     this.users.email = this.user.email as string
-    this.users.userType = this.user.userType as string
     this.users.password = this.user.password as string
     this.authService.signUpUser(this.users).subscribe(
       (data)=>{

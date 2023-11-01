@@ -22,6 +22,7 @@ export class DashboardComponent{
   
   username:string|null="";
   allMembers:Member[]=[]
+  accountAccess!:boolean
   toastMessage:string="Log-In Successfull!!!"
 
   loadComponent(data:any){

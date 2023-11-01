@@ -4,7 +4,7 @@
     </div>
 </div>
 <hr>
-<div *ngIf="myPlans;else elseBlock" class="row">
+<div *ngIf="showPlan;else elseBlock" class="row">
     <div *ngFor="let plan of myPlans" class="col-sm-12 col-md-6 mx-auto mb-5">
         <app-show-plans [myPlan]="true" [plan]="plan"></app-show-plans>
     </div>

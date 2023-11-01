@@ -5,13 +5,7 @@ export class LoginResponse{
     token!:string
     refreshToken!:string
     role!:string
+    accountAccess!:boolean
 
-    constructor(uuid:string,email:string,name:string,token:string,refreshToken:string,role:string){
-        this.uuid = uuid,
-        this.email = email,
-        this.name = name,
-        this.token = token,
-        this.refreshToken = refreshToken
-        this.role = role
-    }
+    constructor(){ }
 }

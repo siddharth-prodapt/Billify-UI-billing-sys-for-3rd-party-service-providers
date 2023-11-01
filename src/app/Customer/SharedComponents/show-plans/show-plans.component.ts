@@ -40,7 +40,7 @@ export class ShowPlansComponent implements OnInit{
     }
   }
   subscribe(id:string|undefined){
-    // console.log(id)
+    console.log(id)
     // console.log(localStorage.getItem('uuid'))
     this.subscribePlan.id=localStorage.getItem('uuid') as string
     this.subscribePlan.subscribedPlanId=id as string

@@ -9,6 +9,7 @@ import { MyPlansService } from 'src/app/Customer/services/plan-service/my-plans.
 })
 export class MyPlansComponent {
   myPlans!:Plans[]
+  showPlan:boolean=false
   
   constructor(private myPlansService:MyPlansService){}
 
@@ -16,6 +17,9 @@ export class MyPlansComponent {
     this.myPlansService.getMyPlans().subscribe((data)=>{
       console.log(data)
       this.myPlans=data
+      if(this.myPlans.length > 0){
+        this.showPlan=true
+      }
     })
   }
 }

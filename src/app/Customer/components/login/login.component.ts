@@ -25,7 +25,7 @@ export class LoginComponent {
   spinner:boolean=false
   message!:string
   username:string='';
-  loginResponse:LoginResponse = new LoginResponse("","","","","","")
+  loginResponse:LoginResponse = new LoginResponse()
   user:Login=new Login("","");
   constructor(private a1:AuthService,private router:Router){}
 

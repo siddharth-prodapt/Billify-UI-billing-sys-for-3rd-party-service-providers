@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav-auth.component.css']
 })
 export class NavAuthComponent {
+  @Input() accountAccess:boolean=false
   logout:boolean=false
   admin:boolean=false
   constructor(private authService:AuthService,private router:Router){ }
