@@ -24,8 +24,14 @@
                 </li>
             </ul>
             <div *ngIf="!admin">
-                <button *ngIf="accountAccess" class="me-2 btn btn-success" type="submit">{{message}}</button>
-                <button *ngIf="!accountAccess && logout" class="me-2 btn btn-danger" type="submit">{{message}}</button>
+                <button *ngIf="accountAccess" class="me-2 btn btn-success" type="submit">
+                    {{message}}
+                    <div class="green-dot" style="display:inline-block;"></div>
+                </button>
+                <button *ngIf="!accountAccess && logout" class="me-2 btn btn-danger" type="submit">
+                    {{message}}
+                    <div class="red-dot" style="display:inline-block;"></div>
+                </button>
             </div>
             <button *ngIf="logout" (click)="logOut()" class="me-2 btn my-btn-primary-outline" type="submit">LogOut</button>
             <button *ngIf="!logout" routerLink="/login" class="me-2 btn my-btn-primary-outline" style="width: 80px;" type="submit">LogIn</button>

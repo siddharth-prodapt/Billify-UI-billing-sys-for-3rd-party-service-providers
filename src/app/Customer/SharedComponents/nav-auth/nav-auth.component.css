@@ -21,3 +21,49 @@
     width: 100%; 
     left: 0; 
 }
+
+.green-dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgb(214, 193, 193);
+    border-radius: 50%;
+    animation: beep 1s ease-in-out infinite;
+}
+  
+@keyframes beep {
+    0% {
+        background-color: rgb(214, 193, 193);;
+        transform: scale(1);
+    }
+    50% {
+        background-color: green; /* Change color during the animation */
+        transform: scale(1.2); /* Grow the dot */
+    }
+    100% {
+        background-color: rgb(214, 193, 193);;
+        transform: scale(1);
+    }
+}
+
+.red-dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgb(214, 193, 193);
+    border-radius: 50%;
+    animation: beep-red 1s ease-in-out infinite;
+}
+  
+@keyframes beep-red {
+    0% {
+        background-color: rgb(214, 193, 193);;
+        transform: scale(1);
+    }
+    50% {
+        background-color: red; /* Change color during the animation */
+        transform: scale(1.2); /* Grow the dot */
+    }
+    100% {
+        background-color: rgb(214, 193, 193);;
+        transform: scale(1);
+    }
+}
