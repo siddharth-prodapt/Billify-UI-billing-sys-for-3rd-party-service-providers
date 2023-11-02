@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms'
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,6 +34,7 @@ import { ForgotPasswordComponent } from './Customer/components/forgot-password/f
 import { ViewUserComponent } from './Admin/components/admin-dashboard/view-user/view-user.component';
 import { ShowUserComponent } from './Admin/components/admin-dashboard/show-user/show-user.component';
 import { GenerateInvoiceComponent } from './Admin/components/admin-dashboard/generate-invoice/generate-invoice.component';
+import { BarChartComponent } from './Admin/components/bar-chart/bar-chart.component';
 
 
 
@@ -66,10 +68,12 @@ import { GenerateInvoiceComponent } from './Admin/components/admin-dashboard/gen
     ViewUserComponent,
     ShowUserComponent,
     GenerateInvoiceComponent,
+    BarChartComponent,
   ],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
+    NgChartsModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
