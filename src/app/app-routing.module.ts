@@ -22,6 +22,7 @@ import { ForgotPasswordComponent } from './Customer/components/forgot-password/f
 import { ViewUserComponent } from './Admin/components/admin-dashboard/view-user/view-user.component';
 import { ShowUserComponent } from './Admin/components/admin-dashboard/show-user/show-user.component';
 import { GenerateInvoiceComponent } from './Admin/components/admin-dashboard/generate-invoice/generate-invoice.component';
+import { ReadCsvComponent } from './Admin/components/admin-dashboard/read-csv/read-csv.component';
 
 const routes: Routes = [
   {
@@ -47,7 +48,7 @@ const routes: Routes = [
   {
     path: 'dashboard/:username',
     component: DashboardComponent,
-    canActivate:[LoginGuard],
+    // canActivate:[LoginGuard],
     children: [
       {
         path: '',
@@ -116,6 +117,10 @@ const routes: Routes = [
       {
         path: 'generateInvoice',
         component:GenerateInvoiceComponent
+      },
+      {
+        path: 'readCSV',
+        component:ReadCsvComponent
       }
     ]
   },

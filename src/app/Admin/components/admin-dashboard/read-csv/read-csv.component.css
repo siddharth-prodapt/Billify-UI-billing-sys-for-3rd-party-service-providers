@@ -1,0 +1,6 @@
+.mail-btn.active{
+    content: "sent";
+    
+    background-color: green;
+    color: white;
+}

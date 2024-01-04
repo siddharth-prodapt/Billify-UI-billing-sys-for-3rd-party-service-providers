@@ -1,0 +1,34 @@
+<div class="row mx-1 mt-3">
+    <h2>Get Data From CSV</h2>
+    <hr>
+    <div class="row mx-1">
+        <div class="col text-end">
+            <button class="btn my-btn-primary" (click)="getData()">Read CSV</button>
+        </div>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Send</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of csvData;let i=index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{data.name}}</td>
+                <td>{{data.email}}</td>
+                <td>Rs.{{data.amount}}</td>
+                <td *ngIf="!mailStatus">
+                    <button class="btn my-btn-primary mail-btn" (click)="sendMail(data.email,data.amount,i+1)" [class.active]="selectedBtn === i+1">send mail</button>
+                </td>
+                <td *ngIf="mailStatus">
+                    <button class="btn btn-success" disabled>mail sent</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>

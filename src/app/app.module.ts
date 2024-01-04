@@ -35,6 +35,7 @@ import { ViewUserComponent } from './Admin/components/admin-dashboard/view-user/
 import { ShowUserComponent } from './Admin/components/admin-dashboard/show-user/show-user.component';
 import { GenerateInvoiceComponent } from './Admin/components/admin-dashboard/generate-invoice/generate-invoice.component';
 import { BarChartComponent } from './Admin/components/bar-chart/bar-chart.component';
+import { ReadCsvComponent } from './Admin/components/admin-dashboard/read-csv/read-csv.component';
 
 
 
@@ -69,6 +70,7 @@ import { BarChartComponent } from './Admin/components/bar-chart/bar-chart.compon
     ShowUserComponent,
     GenerateInvoiceComponent,
     BarChartComponent,
+    ReadCsvComponent,
   ],
   imports: [
     BrowserAnimationsModule,

@@ -8,7 +8,7 @@ import { AdminDashboardService } from '../../services/admin-dashboard/admin-dash
 })
 export class AdminDashboardComponent {
 
-  selectedButton: number=1;
+  selectedButton: number=2;
 
   constructor(private dashboard:AdminDashboardService) { }
 

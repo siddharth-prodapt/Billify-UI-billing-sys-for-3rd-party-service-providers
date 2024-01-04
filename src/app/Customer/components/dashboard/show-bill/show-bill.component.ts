@@ -1,5 +1,5 @@
 import { Component, NgIterable } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Invoice } from 'src/app/Customer/services/invoice-service/Invoice.Model';
 import { PayInvoice } from 'src/app/Customer/services/invoice-service/PayInvoice.Model';
 import { Subscriptions } from 'src/app/Customer/services/invoice-service/Subscriptions.Model';
@@ -12,7 +12,7 @@ import { PayInvoiceService } from 'src/app/Customer/services/invoice-service/pay
   styleUrls: ['./show-bill.component.css']
 })
 export class ShowBillComponent {
-  constructor(private route: ActivatedRoute,private getInvoiceService:GetInvoiceService,private payInvoiceService:PayInvoiceService){ }
+  constructor(private router:Router,private route: ActivatedRoute,private getInvoiceService:GetInvoiceService,private payInvoiceService:PayInvoiceService){ }
   bid:string|null=''
   index!:number
   subs:Subscriptions[] = []
@@ -33,6 +33,7 @@ export class ShowBillComponent {
       this.message = "Bill Paid 🎊"
       this.paymentStatus = true
       this.show()
+      // this.router.navigate([''])
     },
     (error)=>{
       this.message = "Technical Issue Try again!"
