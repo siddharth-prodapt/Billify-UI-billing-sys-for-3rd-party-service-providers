@@ -25,15 +25,8 @@
                         class="form-control"
                         [ngModel]="p.name"
                         name="name"
-                        [readOnly]="editAble"
-                        appNameValidator
+                        readonly
                         required>
-                    <div *ngIf="name.dirty && name.errors?.['required']">
-                        <small class="text-danger">Name is a required field</small>
-                    </div>
-                    <div *ngIf="name.touched && !name.errors?.['isValidName']">
-                        <small class="text-danger">Please enter a valid Name</small>
-                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email<small class="required">*</small></label>
@@ -43,22 +36,16 @@
                         class="form-control" 
                         [ngModel]="p.email" 
                         name="email"
-                        [readOnly]="editAble"
+                        readonly
                         required >
-                    <div *ngIf="email.dirty && email.errors?.['required']">
-                        <small class="text-danger">Email is a required Field</small>
-                    </div>
-                    <div *ngIf="email.touched && email.errors?.['pattern']">
-                        <small class="text-danger">Please enter a valid email</small>
-                    </div>
                 </div>
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="DateOfBirth" class="form-label">Date of Birth<small class="required">*</small></label>
                     <input type="date" [ngModel]="p.dob|date:'yyyy-MM-dd'" class="form-control" name="dob" id="DateOfBirth" [readOnly]="editAble">
-                </div>
+                </div> -->
                 <div class="mb-3">
                     <label for="PhoneNumber" class="form-label">Phone Number<small class="text-danger">*</small></label>
-                    <input type="number" [ngModel]="p.phoneNumber" class="form-control" name="phoneNumber" id="PhoneNumber" [readOnly]="editAble">
+                    <input type="number" [ngModel]="p.phoneNo" class="form-control" name="phoneNumber" id="PhoneNumber" [readOnly]="editAble">
                 </div>
                 <div class="row">
                     <label for="Address" class="form-label">Address<small class="required">*</small></label>
@@ -76,7 +63,7 @@
                     <div *ngIf="house.dirty && house.errors?.['required']">
                         <small class="text-danger">House-No is a required Field</small>
                     </div>
-                    <div *ngIf="house.touched && !house.errors?.['isValidName']">
+                    <div *ngIf="house.touched && house.errors?.['invalidName']">
                         <small class="text-danger">Please enter a valid House-No</small>
                     </div>
                     <div class="row mt-1">
@@ -93,7 +80,7 @@
                             <div *ngIf="city.dirty && city.errors?.['required']">
                                 <small class="text-danger">City is a required Field</small>
                             </div>
-                            <div *ngIf="city.dirty && city.errors?.['invalidName']">
+                            <div *ngIf="city.touched && city.errors?.['invalidName']">
                                 <small class="text-danger">Please enter a valid City</small>
                             </div>
                         </div>

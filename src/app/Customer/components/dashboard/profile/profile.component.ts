@@ -19,7 +19,7 @@ export class ProfileComponent {
   constructor(private userDetailService:UserDetailService,private updateUserDetails:UpdateUserDetailsService){ }
 
   ngOnInit(){
-    this.userDetailService.userObservable.subscribe((data)=>{
+    this.userDetailService.getUserDetails(this.p).subscribe((data)=>{
       console.log(data)
       this.p=data as user 
     })
@@ -27,6 +27,7 @@ export class ProfileComponent {
 
   enableFormEdit(){
     this.editAble=false
+    console.log(this.editAble)
   }
   disableFormEdit(profileForm:NgForm){
     // console.log(profileForm.value)
@@ -38,13 +39,12 @@ export class ProfileComponent {
     profileForm.resetForm(this.p)
   }
   saveChanges(profileForm:NgForm){
-    this.updateProfile.email=profileForm.value.email
     this.updateProfile.phoneNo=profileForm.value.phoneNumber
-    this.updateProfile.dateOfBirth=profileForm.value.dob
-    this.updateProfile.pincode=profileForm.value.pincode
+    this.updateProfile.houseNumber=profileForm.value.houseNumber
     this.updateProfile.city=profileForm.value.city
     this.updateProfile.state=profileForm.value.state
     this.updateProfile.country=profileForm.value.country
+    this.updateProfile.pincode=profileForm.value.pincode
     console.log(this.updateProfile)
     this.updateUserDetails.updateProfile(this.updateProfile).subscribe((data)=>{
       console.log(data)

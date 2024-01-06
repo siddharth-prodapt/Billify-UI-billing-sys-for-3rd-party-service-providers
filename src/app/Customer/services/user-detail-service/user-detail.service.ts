@@ -1,28 +1,34 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { user } from './user.Model';
+import { HttpClient } from '@angular/common/http';
+import { CONSTANT } from 'src/app/config/constant/constant';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserDetailService {
 
+  constructor(private http:HttpClient) { }
+
+  getUserDetails(User:user){
+    return this.http.get(CONSTANT.BASE_URL+"/user/"+localStorage.getItem('uuid'),{headers:{ "Authorization": "Bearer "+localStorage.getItem('token')}})
+  }
+
   user1:user={
     name:"Sai Mohan",
     email:"mohansaip2001@gmail.com",
-    phoneNumber:7847955970,
-    dob:new Date(2001,10,10),
-    houseNumber:"LB-307, Badagada Brit Colony",
-    city:"Bhubaneswar",
-    state:"Odisha",
-    country:"India",
-    pincode:751018,
+    // dob:new Date(),
+    phoneNo:"",
+    houseNumber:"",
+    city:"",
+    state:"",
+    country:"",
+    pincode:"",
     userType:"superUser",
-    password:"Sai@2001"
   }
   userObservable=new Observable((observer)=>{
     observer.next(this.user1 as user)
   })
-  constructor() { }
   
 }

@@ -41,7 +41,7 @@
     <div class="col-xs-3 col-md-3 text-center" id="sideMenu">
         <div class="list-group">
             <div class="navbar px-3">
-                <h3 class="mb-0">Dashboard</h3>
+                <h5 class="mb-0">DASHBOARD</h5>
                 <button class="btn" type="button"  (click)="closeNav()" id="navToggler">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -50,7 +50,7 @@
                 <button routerLink="allPlans" type="button" class="list-group-item list-group-item-action" (click)="highlightedButton(1)" [class.active]="selectedButton === 1">All Plans</button>
                 <button routerLink="myPlans" type="button" class="list-group-item list-group-item-action" (click)="highlightedButton(2)" [class.active]="selectedButton === 2">My Plans</button>
                 <button routerLink="addMember" type="button" class="list-group-item list-group-item-action" (click)="highlightedButton(3)" [class.active]="selectedButton === 3">Add Member</button>
-                <div>
+                
                     <div class="accordion" id="#accordionExampleTwo">
                         <div class="accordion-item" style="border: none;">
                             <h2 class="accordion-header">
@@ -70,7 +70,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                
                 <button routerLink="myBills" type="button" class="list-group-item list-group-item-action" (click)="highlightedButton(4)" [class.active]="selectedButton === 4">My Bills</button>
                 <button routerLink="myProfile" type="button" class="list-group-item list-group-item-action" (click)="highlightedButton(5)" [class.active]="selectedButton === 5">My Profile</button>
             </div>
