@@ -21,6 +21,7 @@ export class ShowBillComponent {
   paymentStatus:boolean=false
   total:number=0
   payload:PayInvoice = new PayInvoice("","",0)
+  payBillBtn:boolean=true
 
   payBill(){
     console.log(localStorage.getItem('uuid'))
@@ -45,15 +46,17 @@ export class ShowBillComponent {
   ngOnInit(){
     console.log('noOnInit of show bill')
     this.bid = this.route.snapshot.paramMap.get('bid');
-    this.index = parseInt(this.bid as string,10)
-    console.log(typeof(this.index))
-    this.getInvoiceService.getInvoices()
-    this.getInvoiceService.obs.subscribe((response)=>{
-      console.log(response[this.index])
-      this.invoice = response[this.index] as Invoice
-      localStorage.setItem('invoiceId',this.invoice.invoiceUuid)
-      this.subs = response[this.index].subscribedPlans as Subscriptions[]
-      console.log(typeof(this.subs))
+    localStorage.setItem('invoiceId',this.bid as string)
+    if(localStorage.getItem('accountStatus') === 'TERMINATED'){
+      console.log(localStorage.getItem('accountStatus') === 'TERMINATED')
+      this.payBillBtn=false
+      
+    }
+    this.getInvoiceService.showInvoices(this.bid as string).subscribe((response)=>{
+      console.log(response)
+      this.invoice = response as Invoice
+      this.subs = this.invoice.subscribedPlanDetails as Subscriptions[]
+      console.log((this.subs))
     })
   }
 

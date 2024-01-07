@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class NavAuthComponent {
   accountAccess:boolean=false
+  suspended:boolean = false
   message!:string
   logout:boolean=false
   admin:boolean=false
@@ -35,11 +36,15 @@ export class NavAuthComponent {
     }
     if(localStorage.getItem('accountAccess') === 'true'){
       this.accountAccess = true
-      this.message = 'ACTIVE'
+      this.message = localStorage.getItem('accountStatus') as string
+    }
+    else if(localStorage.getItem('accountStatus') === 'SUSPENDED'){
+      this.suspended = true
+      this.message = localStorage.getItem('accountStatus') as string
     }
     else{
       this.accountAccess = false
-      this.message = 'TERMINATED'
+      this.message = localStorage.getItem('accountStatus') as string
     }
   }
 }

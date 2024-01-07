@@ -1,7 +1,9 @@
 export class Member{
-    userUuid!:string
+    parentUuid!:string
+    gender!:string
     phoneNumber!:string
     name!:string
+    uuid!:string
 
     constructor(){ }
 }

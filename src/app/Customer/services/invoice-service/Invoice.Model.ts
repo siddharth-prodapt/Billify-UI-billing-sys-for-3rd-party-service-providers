@@ -9,7 +9,8 @@ export class Invoice{
     paymentStatus!: boolean
     dueDate!:string
     paymentDate!:string
-    subscribedPlans!: Subscriptions 
+    subscribedPlanDetails!: Subscriptions[]
+    sumTotal!:string 
 
     constructor() {}
 }

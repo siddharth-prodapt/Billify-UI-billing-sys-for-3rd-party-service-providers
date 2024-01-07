@@ -15,6 +15,12 @@ export class GetInvoiceService {
     const headers=new HttpHeaders({
       'Content-Type':'application/json'
     })
-    this.obs = this.http.get(CONSTANT.BASE_URL+"/user/"+ localStorage.getItem('uuid') +"/invoice",{headers:{ "Authorization": "Bearer "+localStorage.getItem('token')}})
+    this.obs = this.http.get(CONSTANT.BASE_URL+"/user/"+localStorage.getItem('uuid')+"/invoice",{headers:{ "Authorization": "Bearer "+localStorage.getItem('token')}})
+  }
+  showInvoices(bid:string){
+    const headers=new HttpHeaders({
+      'Content-Type':'application/json'
+    })
+    return this.http.get(CONSTANT.BASE_URL2+"/v2/user/invoice/"+bid,{headers:{ "Authorization": "Bearer "+localStorage.getItem('token')}})
   }
 }

@@ -13,7 +13,7 @@ export class AddMemberService {
     const headers=new HttpHeaders({
       'Content-Type':'application/json'
     })
-    console.log(memberUser.name,memberUser.phoneNumber,memberUser.userUuid)
-    return this.http.post(CONSTANT.BASE_URL+"/user/member",memberUser,{headers:{ "Authorization": "Bearer "+localStorage.getItem('token')},observe:'response'})
+    console.log(memberUser.name,memberUser.phoneNumber,memberUser.parentUuid)
+    return this.http.post(CONSTANT.BASE_URL2+"/v2/user/"+memberUser.parentUuid+"/member",memberUser,{headers:{ "Authorization": "Bearer "+localStorage.getItem('token')},observe:'response'})
   }
 }

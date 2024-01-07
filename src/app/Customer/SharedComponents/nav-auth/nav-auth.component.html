@@ -2,7 +2,7 @@
     <div class="container-fluid align-items-center">
         <a routerLink="/home" class="navbar-brand">
             <img src="../../../../assets/images/Billify-logo.png" alt="" height="36px">
-            <p style="font-size: 10px; margin-top: 4px;margin-bottom: 0rem; color: var(--quaternary);">We Bill With a Smile</p>
+            <p style="font-size: 10px; margin-top: 4px;margin-bottom: 0rem; color: var(--primary);">We Bill With a Smile</p>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,16 +11,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="nav-hover navbar-nav mx-auto mb-2 mb-lg-0">
                 <li class="mx-2 nav-item">
-                    <a routerLink="/home" class="nav-link" style="color: var(--secondary);">Home</a>
+                    <a routerLink="/home" class="nav-link" style="color: var(--primary);">Home</a>
                 </li>
                 <li class="mx-2 nav-item">
-                    <a routerLink="/aboutUs" class="nav-link" style="color: var(--secondary);">About</a>
+                    <a routerLink="/aboutUs" class="nav-link" style="color: var(--primary);">About</a>
                 </li>
                 <li class="mx-2 nav-item">
-                    <a routerLink="/contactUs" class="nav-link" style="color: var(--secondary);">Contact</a>
+                    <a routerLink="/contactUs" class="nav-link" style="color: var(--primary);">Contact</a>
                 </li>
                 <li *ngIf="logout" class="nav-item">
-                    <a type="button" (click)="navigate()" class="nav-link" style="color: var(--secondary);">Dashboard</a>
+                    <a type="button" (click)="navigate()" class="nav-link" style="color: var(--primary);">Dashboard</a>
                 </li>
             </ul>
             <div *ngIf="!admin">
@@ -28,7 +28,11 @@
                     {{message}}
                     <div class="green-dot" style="display:inline-block;"></div>
                 </button>
-                <button *ngIf="!accountAccess && logout" class="me-2 btn btn-danger" type="submit">
+                <button *ngIf="!accountAccess && suspended" class="me-2 btn btn-warning" type="submit">
+                    {{message}}
+                    <div class="red-dot" style="display:inline-block;"></div>
+                </button>
+                <button *ngIf="!accountAccess && logout && !suspended" class="me-2 btn btn-danger" type="submit">
                     {{message}}
                     <div class="red-dot" style="display:inline-block;"></div>
                 </button>

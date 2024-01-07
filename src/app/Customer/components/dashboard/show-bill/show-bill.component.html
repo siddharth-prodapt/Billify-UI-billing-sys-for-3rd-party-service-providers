@@ -1,7 +1,8 @@
 <div class="row">
     <div class="col mx-auto pt-3">
-        <a href="javascript:window.history.back();"><i class="bi bi-arrow-left-circle-fill" style="color: var(--secondary);font-size: 25px;"></i></a>
-        
+        <a href="javascript:window.history.back();"><i class="bi bi-arrow-left-circle-fill"
+                style="color: var(--secondary);font-size: 25px;"></i></a>
+
     </div>
 </div>
 <div class="container border rounded" id="full">
@@ -12,26 +13,26 @@
     </div>
     <hr>
     <div class="row">
-        <h5 class="ms-4" >Invoice Summary</h5>
+        <h5 class="ms-4">Invoice Summary</h5>
     </div>
     <div class="row mt-3 mx-4 border rounded" id="InvoiceSummary">
         <table class="table border text-center border-3">
             <thead>
                 <tr>
-                <th scope="col">#</th>
-                <th scope="col">Plan Name</th>
-                <th scope="col">Plan Type</th>
-                <th scope="col">Validity</th>
-                <th scope="col">Rate</th>
+                    <th scope="col">#</th>
+                    <th scope="col">Plan Name</th>
+                    <th scope="col">Plan Type</th>
+                    <th scope="col">Validity</th>
+                    <th scope="col">Rate</th>
                 </tr>
             </thead>
             <tbody *ngFor="let s of subs,let i = index">
                 <tr>
                     <th scope="row">{{i+1}}</th>
-                    <td>{{s.name}}</td>
-                    <td>{{s.planType}}</td>
-                    <td>{{s.validity}}</td>
-                    <td>{{s.price}}</td>
+                    <td>{{s.planName}}</td>
+                    <td>MOBILE</td>
+                    <td>1 Bill cycle</td>
+                    <td>{{s.planAmount}}</td>
                     <td hidden>{{s.price|number}}</td>
                 </tr>
             </tbody>
@@ -42,7 +43,7 @@
             </div>
             <div class="col-2 ps-4">
                 <!-- <div *ngIf="invoice.amount"></div> -->
-                <h5>Rs.{{invoice.amount|number:'1.2-2'}}</h5>
+                <h5>Rs.{{invoice.sumTotal|number:'1.2-2'}}</h5>
             </div>
         </div>
         <div class="row" id="Tax">
@@ -50,7 +51,7 @@
                 <h5>Tax</h5>
             </div>
             <div class="col-2 ps-4">
-                <h5>Rs.51.50</h5>
+                <h5>Rs.0</h5>
             </div>
         </div>
         <div class="row mt-3" id="Total">
@@ -58,7 +59,7 @@
                 <h5 style="font-weight: 700;">Total:</h5>
             </div>
             <div class="col-2 ps-4">
-                <h5 style="font-weight: 700;">Rs.{{invoice.amount+50.50|number:'1.2-2'}}</h5>
+                <h5 style="font-weight: 700;">Rs.{{invoice.amount|number:'1.2-2'}}</h5>
             </div>
         </div>
     </div>
@@ -74,38 +75,42 @@
     </div>
     <div class="row mt-5 mb-3">
         <div class="col-4 text-center mx-auto">
-            <button class="btn my-btn-primary" style="width: 250px;position:fixed;bottom: 10px; left: 50%;" data-bs-toggle="modal" data-bs-target="#payBill">Pay</button>
+            <button [disabled]="!payBillBtn" class="btn my-btn-primary" style="width: 250px;position:fixed;bottom: 10px; left: 50%;"
+                data-bs-toggle="modal" data-bs-target="#payBill">Pay</button>
         </div>
     </div>
 </div>
 
-  <!-- Modal -->
-  <div class="modal fade" id="payBill" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<!-- Modal -->
+<div class="modal fade" id="payBill" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="staticBackdropLabel">Pay Bill</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Pay Bill</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Do you really want to Pay the Bills</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button  (click)="payBill()" type="button" data-bs-dismiss="modal" class="btn btn-primary">Pay
+                    Bill</button>
+            </div>
         </div>
-        <div class="modal-body">
-          <p>Do you really want to Pay the Bills</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button (click)="payBill()" type="button" data-bs-dismiss="modal" class="btn btn-primary">Pay Bill</button>
-        </div>
-      </div>
     </div>
-  </div>
-  <div class="toast-container position-fixed bottom-0 start-0 p-3">
-    <div id="liveToast" class="toast" [ngClass]="{'show':showToast}" role="alert" aria-live="assertive" aria-atomic="true">
-      <div [ngClass]="{'bg-success-subtle':paymentStatus}" class="toast-header">
-        <strong class="me-auto">Billify</strong>
-        <small>2 secs ago</small>
-        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-      </div>
-      <div class="toast-body">
-        {{message}}
-      </div>
+</div>
+<div class="toast-container position-fixed bottom-0 start-0 p-3">
+    <div id="liveToast" class="toast" [ngClass]="{'show':showToast}" role="alert" aria-live="assertive"
+        aria-atomic="true">
+        <div [ngClass]="{'bg-success-subtle':paymentStatus}" class="toast-header">
+            <strong class="me-auto">Billify</strong>
+            <small>2 secs ago</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            {{message}}
+        </div>
     </div>
-  </div>
+</div>

@@ -14,17 +14,17 @@
       <thead>
         <tr> 
           <th scope="col">#</th>
-          <th scope="col">Bid</th>
-          <th scope="col">due_date</th>
-          <th scope="col">status</th>
-          <th scope="col">price</th>
-          <th scope="col">paid_on</th>
+          <th scope="col">BID</th>
+          <th scope="col">DUE DATE</th>
+          <th scope="col">STATUS</th>
+          <th scope="col">AMOUNT</th>
+          <th scope="col">PAID ON</th>
         </tr>
       </thead>
       <tbody class="text-center" *ngFor="let b of bills;let i=index">
         <tr>
           <th scope="row">{{i+1}}</th>
-          <td><a [ariaDisabled]="!b.paymentStatus" routerLink="/dashboard/{{username}}/showBills/{{i}}">#{{b.invoiceUuid.slice(0,5)}}</a></td>
+          <td><a [ariaDisabled]="!b.paymentStatus" routerLink="/dashboard/{{username}}/showBills/{{b.invoiceUuid}}">#{{b.invoiceUuid.slice(0,5)}}</a></td>
           <td>{{b.dueDate|date}}</td>
           <td>
             <div *ngIf="b.paymentStatus">

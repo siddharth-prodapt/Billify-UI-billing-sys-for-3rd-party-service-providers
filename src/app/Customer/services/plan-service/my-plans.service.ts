@@ -14,6 +14,6 @@ export class MyPlansService {
     const headers=new HttpHeaders({
       'Content-Type':'application/json'
     })
-    return this.http.get<Plans[]>(CONSTANT.BASE_URL+"/user/"+localStorage.getItem('uuid')+"/plans",{headers:{ "Authorization": "Bearer "+localStorage.getItem('token')}})
+    return this.http.get<Plans[]>(CONSTANT.BASE_URL2+"/v2/user/"+localStorage.getItem('uuid')+"/plans",{headers:{ "Authorization": "Bearer "+localStorage.getItem('token')}})
   }
 }

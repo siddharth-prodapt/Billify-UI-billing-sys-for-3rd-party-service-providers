@@ -14,6 +14,6 @@ export class GetMemberService {
     const headers=new HttpHeaders({
       'Content-Type':'application/json'
     })
-    return this.http.get<Member[]>(CONSTANT.BASE_URL+"/user/"+localStorage.getItem('uuid')+"/member",{headers:{ "Authorization": "Bearer "+localStorage.getItem('token')},observe:'response'})
+    return this.http.get<Member[]>(CONSTANT.BASE_URL2+"/v2/user/"+localStorage.getItem('uuid')+"/member",{headers:{ "Authorization": "Bearer "+localStorage.getItem('token')},observe:'response'})
   }
 }

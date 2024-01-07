@@ -62,10 +62,15 @@
       </div>
       <div class="modal-body">
         <p class="lead">Do You Really Want to subscribe to the plan.</p>
+        <input type="checkbox" [checked]="true"> {{parentName}}
+        <div class="form-check" *ngFor="let m of newMembers">
+          <input class="form-check-input" type="checkbox" [checked]="m.selected" (change)="onChangeCheckbox(m)">{{m.name}}
+        </div>
+        <!-- count: {{count}} -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-        <button (click)="subscribe(plan?.uuid)" type="button" class="btn btn-primary" data-bs-dismiss="modal">Yes</button>
+        <button (click)="subscribe(plan?.uuid)" type="button" class="btn my-btn-primary" data-bs-dismiss="modal">Yes</button>
       </div>
     </div>
   </div>

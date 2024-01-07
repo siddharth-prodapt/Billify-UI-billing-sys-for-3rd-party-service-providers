@@ -48,6 +48,7 @@ export class LoginComponent {
           localStorage.setItem('name',this.loginResponse.name)
           localStorage.setItem('uuid',this.loginResponse.uuid as string)
           localStorage.setItem('accountAccess',this.loginResponse.accountAccess)
+          localStorage.setItem('accountStatus',this.loginResponse.accountStatus)
           console.log(localStorage.getItem('token'))
           this.spinner=false
           this.message="Login Successfull 🎉. Re-directing to Dashboard!"

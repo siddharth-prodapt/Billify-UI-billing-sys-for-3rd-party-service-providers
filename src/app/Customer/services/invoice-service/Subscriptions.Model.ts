@@ -1,4 +1,6 @@
 export class Subscriptions{
+    planName!:string
+    planAmount!:string
     uuid!: string
     name!: string
     planFor!: string

@@ -1,10 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 :root{
-    --primary-subtle:#f87f5a;
-    --primary:#F77754;
-    --secondary:#584B42;
-    --tertiary:#537D91;
-    --quaternary:#A4D1C8;
+    --primary-subtle:#4637a0;
+    --primary:#190482;
+    --secondary:#7752FE;
+    --tertiary:#8E8FFA;
+    --quaternary:#8E8FFA;
     --quaternary-subtle:#f3fdfc;
 }
 :root .my-btn-tertiary-outline{

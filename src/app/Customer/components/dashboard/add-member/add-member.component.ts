@@ -12,11 +12,18 @@ export class AddMemberComponent {
 
   memberUser:Member = new Member()
   message:string=""
+  gender:string=""
 
   constructor(private addMemberService:AddMemberService){ }
 
+  onSelectChange(event:any) {
+    // console.log('Selected Value:', event.target.value);
+    this.memberUser.gender = event.target.value;
+  }
+
   addMember(){
-    this.memberUser.userUuid=localStorage.getItem('uuid') as string
+    this.memberUser.parentUuid=localStorage.getItem('uuid') as string
+    console.log("HI"+this.memberUser.gender+this.memberUser.phoneNumber)
     this.addMemberService.addMemberUser(this.memberUser).subscribe(
       (data)=>{
         console.log(data)

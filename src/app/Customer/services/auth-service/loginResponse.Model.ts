@@ -6,6 +6,7 @@ export class LoginResponse{
     refreshToken!:string
     role!:string
     accountAccess!:string
+    accountStatus!:string
 
     constructor(){ }
 }
